@@ -9,10 +9,10 @@ function Results() {
 	const { listItems } = useContext(GlobalContext);
 	return (
 		<div className='Results md:w-3/6 md:ml-20'>
-			<Heading>Your results</Heading>
+			<Heading id="#anchor">Your results</Heading>
 			{listItems[0] && <List items={listItems} />}
 			{!listItems[0] && (
-				<p className='text-neutral-500 text-left '>
+				<p className='text-neutral-500 text-left' id="scroll-anchor">
 					Compose a prompt to get started
 				</p>
 			)}

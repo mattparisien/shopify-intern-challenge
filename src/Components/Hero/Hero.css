@@ -1,25 +1,31 @@
+.Section_hero .hero-content {
+	padding-top: 4vw;
+}
+
 .hero-word {
-  font-size: 14vw;
+	font-size: 14vw;
+	line-height: 14vw;
 }
 
 .hero-word:first-child {
-  position: absolute;
-  left: 10vw;
+	left: 10vw;
+}
+
+.hero-word:first-child .motion-wrap .motion-word:last-child .motion-char:last-child {
+		transform:
 }
 
 .hero-word:nth-child(2) {
-  position: absolute;
-  top: 17vw;
-  left: 5vw;
+	top: 17vw;
+	left: 2vw;
 }
 .hero-word:nth-child(3) {
-  position: absolute;
-  bottom: 13vw;
-  right: 5vw;
-
+	bottom: 13vw;
+	right: 5vw;
 }
 .hero-word:nth-child(4) {
-  position: absolute;
-  bottom: 2vw;
-  right: 12vw;
+	bottom: 2vw;
+	right: 12vw;
 }
+
+

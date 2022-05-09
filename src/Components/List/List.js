@@ -6,7 +6,9 @@ import { Global } from "@emotion/react";
 
 function List({ items }) {
 	const classes =
-		"List  text-dark w-full h-full flex flex-col items-start justify-start";
+		"List text-dark w-full flex flex-col items-start justify-start";
+
+		console.log('the items', items)
 
 	return (
 		<ul className={classes}>

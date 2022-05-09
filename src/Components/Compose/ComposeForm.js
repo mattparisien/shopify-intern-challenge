@@ -2,19 +2,18 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../App/App";
 import Button from "../Button/Button";
-import "./ComposeForm.css";
+import FormError from "../Form/FormError";
 
 function ComposeForm() {
-	const { setListItems } = useContext(GlobalContext);
+	const { setListItems, listItems } = useContext(GlobalContext);
+	const [value, setValue] = useState("");
 	const [prompt, setPrompt] = useState(null);
 	const [response, setResponse] = useState(null);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(false);
+	const [loading, setLoading] = useState(null);
+	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		if (prompt && !loading) {
-			setLoading(true);
-
+		if (prompt) {
 			const getData = async () => {
 				const body = {
 					temperature: 0.5,
@@ -49,35 +48,61 @@ function ComposeForm() {
 	}, [prompt]);
 
 	useEffect(() => {
-		if (response) {
+		if (response && !listItems.includes(response)) {
 			setListItems(prevState => [
-				...prevState,
 				{
 					id: response.id,
 					prompt: prompt,
 					response: response.choices[0].text,
+					datePosted: new Date(),
 				},
+				...prevState,
 			]);
+
+			setValue("");
+		} else if (response && listItems.includes(response)) {
+			setError("You already submitted this prompt");
 		}
 	}, [response, prompt]);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		const text = e.target[0].value;
+
+		const text = value;
+
+		if (!text || text === "") {
+			setError("Field cannot be empty");
+			return;
+		}
 
 		setPrompt(text);
+		setResponse(null);
+		setLoading(true);
 	};
 
-	const classes = "Form w-full";
+	const handleChange = e => {
+		setError(null);
+		setValue(e.target.value);
+	};
 
 	return (
-		<div className='ComposeForm w-full flex-1  text-dark rounded-lg p-4'>
-			<form className={classes} onSubmit={handleSubmit}>
-				<input
+		<div className='ComposeForm w-full flex-1  text-dark rounded-lg pr-4 py-4'>
+			<form className='form w-full' onSubmit={handleSubmit}>
+				<textarea
 					className='text-dark bg-transparent border-b rounded-l w-full'
-					placeholder={"What are you thinking about?"}
-				></input>
-				<Button type='submit'>Submit prompt</Button>
+					placeholder={"I love bagels"}
+					name='prompt'
+					value={value}
+					onChange={handleChange}
+					autoFocus={true}
+					style={{ resize: "none" }}
+				></textarea>
+				<FormError error={error} />
+				<div className='cta-wrapper w-full flex md:justify-end'>
+					<Button type='submit' isLoading={loading}>
+						Submit prompt
+					</Button>
+				</div>
 			</form>
 		</div>
 	);

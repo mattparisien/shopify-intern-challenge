@@ -1,0 +1,35 @@
+.Star {
+	z-index: 0;
+	transform-origin: center;
+	transform: scale(0);
+	animation: starAnim 65s linear infinite;
+	animation-delay: 2.9s;
+}
+
+.star-wrapper {
+	animation: spinIntroAnim 3s ease forwards;
+	transform-origin: center;
+	animation-delay: 2.9s;
+}
+
+.star-scroll-wrapper {
+	transition: ease;
+}
+
+@keyframes starAnim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spinIntroAnim {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg) scale(0);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg) scale(3.4);
+	}
+}

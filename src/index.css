@@ -4,14 +4,14 @@ code {
 }
 
 @font-face {
-	src: url("./assets/fonts/NeueMontreal-Regular.otf");
-	font-family: "Neue Mtl";
+	src: url("./assets/fonts/PPMori-Regular.otf");
+	font-family: "Mori";
 	font-weight: 200;
 }
 
 @font-face {
-	src: url("./assets/fonts/NeueMontreal-Medium.otf");
-	font-family: "Neue Mtl";
+	src: url("./assets/fonts/PPMori-SemiBold.otf");
+	font-family: "Mori";
 	font-weight: 600;
 }
 
@@ -19,12 +19,21 @@ code {
 @tailwind components;
 @tailwind utilities;
 
+body {
+	overflow-x: hidden;
+}
+
 :root,
 body,
 #root {
 	width: 100%;
 	height: 100%;
-	font-family: "Neue Mtl";
+	font-family: "Mori";
+	scroll-behavior: smooth;
+}
+
+textArea:focus {
+	outline: none;
 }
 
 .shadow-custom {

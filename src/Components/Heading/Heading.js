@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import SplitText from "../SplitText/SplitText";
 
-function Heading({children}) {
-  return (
-    <h2 className="Heading text-dark text-4xl text-left pb-10">{children}</h2>
-  )
+function Heading(props) {
+	return (
+		<h2
+			className='Heading text-dark text-4xl text-left pb-10 font-semibold'
+			{...props}
+		>
+			{props.children}
+		</h2>
+	);
 }
 
-export default Heading
+export default Heading;
