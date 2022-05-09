@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import ListItem from "./ListItem";
 
-function List() {
-  return (
-    <div>List</div>
-  )
+function List({ items }) {
+	const classes = "List  w-full h-full flex flex-col items-start justify-end";
+
+	return (
+		<ul className={classes}>
+			{items && items.map(item => <ListItem key={item.id} {...item} />)}
+		</ul>
+	);
 }
 
-export default List
+export default List;

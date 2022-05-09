@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Button from "../Button/Button";
-import useSubmit from "../../hooks/useSubmit";
-import axios from "axios";
-import "./Form.css";
+import React, { useState, useEffect } from "react";
 
-function Form({ setListItems }) {
+import Button from "../Button/Button";
+import axios from "axios";
+import "./ComposeForm.css";
+
+function ComposeForm({ setListItems }) {
 	const [prompt, setPrompt] = useState(null);
 	const [response, setResponse] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -63,20 +63,24 @@ function Form({ setListItems }) {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const text = e.target[0].value;
-		console.log(text);
+
 		setPrompt(text);
 	};
 
-	const classes = "Form w-2/6";
+	const classes = "Form w-full";
 
 	return (
-		<form className={classes} onSubmit={handleSubmit}>
-			<div className='form-group'>
-				<input className='text-white bg-transparent border rounded-l h-20 w-full'></input>
-			</div>
-			<Button type='submit'>Submit prompt</Button>
-		</form>
+		<div className='ComposeForm w-full flex-1  text-white rounded-lg p-4'>
+			<h3 className='text-4xl text-left mb-10'>Compose a new prompt</h3>
+			<form className={classes} onSubmit={handleSubmit}>
+				<input
+					className='text-white bg-transparent border-b rounded-l w-full'
+					placeholder={"What are you thinking about?"}
+				></input>
+        <Button type='submit'>Submit prompt</Button>
+			</form>
+		</div>
 	);
 }
 
-export default Form;
+export default ComposeForm;

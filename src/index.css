@@ -1,16 +1,34 @@
-:root,
-body,
-#root,
-.App {
-	width: 100%;
-	height: 100%;
-}
+
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
 
+@font-face {
+	src: url("./assets/fonts/NeueMontreal-Regular.otf");
+	font-family: 'Neue Mtl';
+	font-weight: 200;
+	
+}
+
+@font-face {
+	src: url("./assets/fonts/NeueMontreal-Medium.otf");
+	font-family: "Neue Mtl";
+	font-weight: 600;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root,
+body,
+#root,
+.App {
+	width: 100%;
+	height: 100%;
+	font-family: 'Neue Mtl';
+}

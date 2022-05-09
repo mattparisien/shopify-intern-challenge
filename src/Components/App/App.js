@@ -1,39 +1,25 @@
+import { useState } from "react";
+import Header from "../../Header/Header";
+import Container from "../Container/Container";
+import Form from "../Form/Form";
+import List from "../List/List";
+import Compose from "../Compose/Compose";
 import "./App.css";
-import { useEffect, useState } from "react";
-import useAxios from "axios-hooks";
-import axios from "axios";
 
 function App() {
-	const [data, setData] = useState(null);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(false);
+	const [listItems, setListItems] = useState([]);
 
-	useEffect(() => {
-		const getData = async () => {
-			try {
-				const body = {};
-				const resp = await axios.post(
-					process.env.REACT_APP_OPENAPI_BASEURL,
-					body,
-					{
-						headers: {
-							Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
-						},
-					}
-				);
-
-				setLoading(false);
-				setData(resp.data);
-			} catch (err) {
-				setLoading(false);
-				setError(err);
-			}
-		};
-
-		getData();
-	}, []);
-
-	return <div className='App bg-cream'></div>;
+	return (
+		<div className='App bg-dark'>
+			<Header/>
+			<Compose/>
+				{/* <div className='content flex w-full h-full items-center justify-between'>
+					<Form listItems={listItems} setListItems={setListItems} />
+					<List items={listItems} />
+				</div> */}
+			
+		</div>
+	);
 }
 
 export default App;
