@@ -1,9 +1,16 @@
 import React from "react";
+import Container from "../Container/Container";
+import ConditionalWrapper from "../ConditionalWrapper/ConditionalWrapper";
 
-function Section({ name, children }) {
+function Section({ name, children, disableContainer }) {
 	return (
 		<section className={`Section Section_${name} w-full`}>
-			<div className='container w-full mx-auto'>{children}</div>
+			<ConditionalWrapper
+				wrapper={children => <Container>{children}</Container>}
+				condition={!disableContainer}
+			>
+				{children}
+			</ConditionalWrapper>
 		</section>
 	);
 }

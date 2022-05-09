@@ -1,4 +1,4 @@
-.Button::after {
+/* .Button::after {
 	background-color: white;
 	content: "";
 	bottom: 0;
@@ -13,4 +13,4 @@
 
 .Button:hover::after {
   transform: scaleX(1);
-}
+} */

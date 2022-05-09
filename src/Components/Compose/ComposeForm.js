@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-
-import Button from "../Button/Button";
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../App/App";
+import Button from "../Button/Button";
 import "./ComposeForm.css";
 
-function ComposeForm({ setListItems }) {
+function ComposeForm() {
+	const { setListItems } = useContext(GlobalContext);
 	const [prompt, setPrompt] = useState(null);
 	const [response, setResponse] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -70,14 +71,13 @@ function ComposeForm({ setListItems }) {
 	const classes = "Form w-full";
 
 	return (
-		<div className='ComposeForm w-full flex-1  text-white rounded-lg p-4'>
-			<h3 className='text-4xl text-left mb-10'>Compose a new prompt</h3>
+		<div className='ComposeForm w-full flex-1  text-dark rounded-lg p-4'>
 			<form className={classes} onSubmit={handleSubmit}>
 				<input
-					className='text-white bg-transparent border-b rounded-l w-full'
+					className='text-dark bg-transparent border-b rounded-l w-full'
 					placeholder={"What are you thinking about?"}
 				></input>
-        <Button type='submit'>Submit prompt</Button>
+				<Button type='submit'>Submit prompt</Button>
 			</form>
 		</div>
 	);

@@ -1,4 +1,4 @@
 .ListItem {
-  height: 15vw;
+  min-height: 15vw;
   max-height: 200px;
 }

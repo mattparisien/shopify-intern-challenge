@@ -1,24 +1,32 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Header from "../../Header/Header";
-import Container from "../Container/Container";
-import Form from "../Form/Form";
-import List from "../List/List";
 import Compose from "../Compose/Compose";
+import Results from "../Results/Results";
+import Section from "../Section/Section";
+import EntryScreen from "../EntryScreen/EntryScreen";
+import Hero from "../Hero/Hero";
 import "./App.css";
+
+export const GlobalContext = createContext();
 
 function App() {
 	const [listItems, setListItems] = useState([]);
 
 	return (
-		<div className='App bg-dark'>
-			<Header/>
-			<Compose/>
-				{/* <div className='content flex w-full h-full items-center justify-between'>
-					<Form listItems={listItems} setListItems={setListItems} />
-					<List items={listItems} />
-				</div> */}
-			
-		</div>
+		<GlobalContext.Provider value={{ listItems, setListItems }}>
+			<div className='App bg-cream'>
+				<EntryScreen />
+				<Header />
+				<Hero />
+
+				<Section name="main">
+					<div className='flex-wrapper flex flex-col justify-between md:flex-row pt-40 w-full'>
+						<Compose />
+						<Results />
+					</div>
+				</Section>
+			</div>
+		</GlobalContext.Provider>
 	);
 }
 
