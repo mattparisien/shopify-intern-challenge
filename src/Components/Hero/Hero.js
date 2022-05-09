@@ -11,11 +11,13 @@ function Hero() {
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPos = window.scrollY / 10;
-			console.log(ref.current)
+			console.log(ref.current);
 			ref.current.style.transform = `rotate(${scrollPos}deg)`;
 		};
 
 		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	return (

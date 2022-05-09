@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../App/App";
 import Button from "../Button/Button";
-import FormError from "../Form/FormError";
+import FormError from "./FormError";
 
 function ComposeForm() {
 	const { setListItems, listItems } = useContext(GlobalContext);

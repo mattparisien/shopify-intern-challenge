@@ -18,16 +18,18 @@ function App() {
 		<GlobalContext.Provider value={{ listItems, setListItems }}>
 			<ScrollTop>
 				<div className='App bg-cream'>
-					<EntryScreen />
-					<Header />
-					<Hero />
+					<main>
+						<EntryScreen />
+						<Header />
+						<Hero />
 
-					<Section name='main'>
-						<div className='flex-wrapper flex flex-col justify-between md:flex-row py-40 w-full'>
-							<Compose />
-							<Results />
-						</div>
-					</Section>
+						<Section name='main'>
+							<div className='flex-wrapper flex flex-col justify-between md:flex-row py-40 w-full'>
+								<Compose />
+								<Results />
+							</div>
+						</Section>
+					</main>
 					<Footer />
 				</div>
 			</ScrollTop>
