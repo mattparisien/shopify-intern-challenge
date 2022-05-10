@@ -4,7 +4,7 @@ import ListItemBody from '../ListItemBody'
 function ListItemStatic() {
   return (
     <div className="ListItemStatic">
-      <ListItemBody  />
+      <ListItemBody />
     </div>
   )
 }

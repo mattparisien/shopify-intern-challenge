@@ -5,11 +5,15 @@ import ListItemBody from "./ListItemBody";
 import ListItemFooter from "./ListItemFooter";
 import MoreButton from "./MoreButton";
 import ListItemPopover from "./ListItemPopover";
+import Switch from "../../Switch/Switch";
+import ListItemStatic from "./Views/ListItemStatic";
+import ListItemEdit from "./Views/ListItemEdit";
 
 export const ListItemContext = createContext();
 
 function ListItem({ id, prompt, response, datePosted, isLiked }) {
 	const [popoverActive, setPopoverActive] = useState(false);
+	const [currentView, setCurrentView] = useState("STATIC");
 
 	const variants = {
 		hidden: {
@@ -36,7 +40,10 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 				initial='hidden'
 				animate={"visible"}
 			>
-				<ListItemBody prompt={prompt} response={response} />
+				<Switch test={currentView}>
+					<ListItemStatic value={"STATIC"} />
+					<ListItemStatic value={"EDIT"} />
+				</Switch>
 				<ListItemFooter datePosted={datePosted} isLiked={isLiked} />
 				<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
 				{popoverActive && (
