@@ -15,12 +15,12 @@ function ListItemFooter({ datePosted, isLiked }) {
 			<span className='time text-neutral-400 block  text-sm'>
 				Posted on {date}
 			</span>
-			{isLiked && <LikeIcon />}
+			<LikeIcon isActive={isLiked} />
 		</footer>
 	);
 }
 
-function LikeIcon() {
+function LikeIcon({ isActive }) {
 	const variants = {
 		hidden: {
 			scale: 0,
@@ -41,9 +41,13 @@ function LikeIcon() {
 	};
 
 	return (
-		<motion.span variants={variants}>
+		<span
+			className={`LikeIcon block scale-${
+				isActive ? 1 : 0
+			} transition ease duration-300`}
+		>
 			<FavoriteIcon sx={{ width: "1.3rem", fill: "pink" }} />
-		</motion.span>
+		</span>
 	);
 }
 
