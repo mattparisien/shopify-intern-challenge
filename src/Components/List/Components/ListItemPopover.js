@@ -2,7 +2,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
 import React, { useContext } from "react";
-import { GlobalContext } from "../App/App";
+import { GlobalContext } from "../../App/App";
 
 function ListItemPopover({ listItemId, isLiked, toggleSelf }) {
 	const { ACTIONS } = useContext(GlobalContext);
