@@ -2,6 +2,7 @@ import React from "react";
 import { Routes as ReactRoutes, Route } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
 import AboutPage from "../Pages/AboutPage";
+import { AnimatePresence } from "framer-motion";
 
 function Routes() {
 	const routesMap = [
@@ -18,15 +19,17 @@ function Routes() {
 	];
 
 	return (
-		<ReactRoutes>
-			{routesMap.map((route, i) => (
-				<Route
-					key={i}
-					element={React.createElement(route.component)}
-					path={route.path}
-				/>
-			))}
-		</ReactRoutes>
+		<AnimatePresence exitBeforeEnter>
+			<ReactRoutes>
+				{routesMap.map((route, i) => (
+					<Route
+						key={i}
+						element={React.createElement(route.component)}
+						path={route.path}
+					/>
+				))}
+			</ReactRoutes>
+		</AnimatePresence>
 	);
 }
 

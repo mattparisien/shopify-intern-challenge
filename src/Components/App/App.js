@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import Header from "../../Header/Header";
 import Cursor from "../Cursor";
 import EntryScreen from "../EntryScreen/EntryScreen";
@@ -13,13 +13,16 @@ function App() {
 	const [listItems, setListItems] = useState([]);
 	const scrollRef = useRef(null);
 
+	useEffect(() => {
+		console.log('This was a lot of fun to make 😎')
+	}, [])
+
 	return (
 		<GlobalContext.Provider value={{ listItems, setListItems }}>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<div className='scroll-wrapper' ref={scrollRef} data-scroll-container>
 						<Header />
-
 						<main>
 							<EntryScreen />
 							<Routes />
@@ -28,7 +31,7 @@ function App() {
 					</div>
 				</div>
 			</ScrollTop>
-			<Cursor />
+			{/* <Cursor /> */}
 		</GlobalContext.Provider>
 	);
 }
