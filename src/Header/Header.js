@@ -1,6 +1,7 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import React, { useEffect, useState } from "react";
 import Container from "../Components/Container/Container";
+import NavDesktop from "./NavDesktop";
 import "./Header.css";
 
 function Header() {
@@ -30,18 +31,7 @@ function Header() {
 					<div className='header-logo transition ease duration-300 font-semibold'>
 						Prompt it!
 					</div>
-					<button
-						className='header-cta cursor-pointer'
-						onClick={() => window.scrollTo(0, window.innerHeight)}
-					>
-						<span className='pr-2 transition ease duration-300'>
-							Start prompting{" "}
-						</span>
-						<ArrowBackIosNewIcon
-							className='transition ease duration-300'
-							sx={{ transform: "rotate(-90deg)", width: "1rem" }}
-						/>
-					</button>
+					<NavDesktop />
 				</div>
 			</Container>
 		</header>
@@ -49,3 +39,16 @@ function Header() {
 }
 
 export default Header;
+
+{/* <button
+className='header-cta cursor-pointer'
+onClick={() => window.scrollTo(0, window.innerHeight)}
+>
+<span className='pr-2 transition ease duration-300'>
+	Start prompting{" "}
+</span>
+<ArrowBackIosNewIcon
+	className='transition ease duration-300'
+	sx={{ transform: "rotate(-90deg)", width: "1rem" }}
+/>
+</button> */}
