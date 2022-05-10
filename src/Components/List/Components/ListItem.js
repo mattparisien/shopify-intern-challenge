@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
-import React, { useState, createContext } from "react";
+import React, { createContext, useState } from "react";
 import "./ListItem.css";
-import ListItemBody from "./ListItemBody";
 import ListItemFooter from "./ListItemFooter";
-import MoreButton from "./MoreButton";
 import ListItemPopover from "./ListItemPopover";
-import Switch from "../../Switch/Switch";
-import ListItemStatic from "./Views/ListItemStatic";
-import ListItemEdit from "./Views/ListItemEdit";
+import MoreButton from "./MoreButton";
+import ListItemBody from "./ListItemBody";
 
 export const ListItemContext = createContext();
 
@@ -30,6 +27,12 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 		},
 	};
 
+	const handleViewToggle = () => {
+		const oppositeView = currentView === "STATIC" ? "EDIT" : "STATIC";
+
+		setCurrentView(oppositeView);
+	};
+
 	return (
 		<ListItemContext.Provider
 			value={{ id, prompt, response, datePosted, isLiked }}
@@ -40,10 +43,7 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 				initial='hidden'
 				animate={"visible"}
 			>
-				<Switch test={currentView}>
-					<ListItemStatic value={"STATIC"} />
-					<ListItemStatic value={"EDIT"} />
-				</Switch>
+				<ListItemBody />
 				<ListItemFooter datePosted={datePosted} isLiked={isLiked} />
 				<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
 				{popoverActive && (

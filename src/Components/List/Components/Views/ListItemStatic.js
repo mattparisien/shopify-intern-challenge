@@ -1,12 +1,12 @@
-import React from 'react'
-import ListItemBody from '../ListItemBody'
+import React from "react";
+import ListItemBody from "../ListItemBody";
 
 function ListItemStatic() {
-  return (
-    <div className="ListItemStatic">
-      <ListItemBody />
-    </div>
-  )
+	return (
+		<div className='ListItemStatic'>
+			<ListItemBody />
+		</div>
+	);
 }
 
-export default ListItemStatic
+export default ListItemStatic;

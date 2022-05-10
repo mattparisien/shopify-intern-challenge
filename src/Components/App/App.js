@@ -17,9 +17,6 @@ function App() {
 			...prevState.filter(listItem => listItem.id !== id),
 		]);
 	};
-	const editListItem = id => {
-		console.log("the id...", id);
-	};
 
 	const likeListItem = id => {
 		setListItems(prevState => {
@@ -53,7 +50,6 @@ function App() {
 
 	const ACTIONS = {
 		delete: deleteListItem,
-		edit: editListItem,
 		like: likeListItem,
 		unlike: unlikeListItem,
 	};
