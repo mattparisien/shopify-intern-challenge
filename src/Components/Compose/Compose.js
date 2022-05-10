@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "../Heading/Heading";
 import ComposeForm from "./ComposeForm";
+import useInView from "../../hooks/useInView";
 import FadeUpChildren from "../Animation/FadeUpChildren";
 
 function Compose() {

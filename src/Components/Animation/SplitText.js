@@ -21,6 +21,7 @@ function SplitText(props) {
 			opacity: 1,
 			y: 0,
 			transition: { duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] },
+			
 		},
 		exit: {
 			opacity: 0,
@@ -65,10 +66,10 @@ const AnimationWrapper = ({ children, enterDelay, exitDelay }) => {
 		visible: {
 			opacity: 1,
 
-			transition: { staggerChildren: 0.02, delayChildren: enterDelay || 0.2 },
+			transition: { staggerChildren: 0.1, delayChildren: enterDelay || 0.2 },
 		},
 		exit: {
-			transition: { staggerChildren: 0.02, delayChildren: exitDelay || 0.2 },
+			transition: { staggerChildren: 0.1, delayChildren: exitDelay || 0.2 },
 		},
 	};
 

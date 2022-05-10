@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
-import InView from "./InView";
+import useInView from "../../hooks/useInView";
 
 function FadeUpChildren({ children }) {
+	const { ref, inView } = useInView();
+
 	const variants = {
 		hidden: {
 			opacity: 0,
@@ -16,13 +18,13 @@ function FadeUpChildren({ children }) {
 	};
 
 	return (
-		<InView>
+		<div className='view-wrapper' ref={ref}>
 			{Array.isArray(children) ? (
 				children.map(child => (
 					<motion.div
 						className='motion-wrap'
 						variants={variants}
-						animate='visible'
+						animate={inView && 'visible'}
 						initial='hidden'
 					>
 						{child}
@@ -32,13 +34,13 @@ function FadeUpChildren({ children }) {
 				<motion.div
 					className='motion-wrap'
 					variants={variants}
-					animate='visible'
+					animate={inView && 'visible'}
 					initial='hidden'
 				>
 					{children}
 				</motion.div>
 			)}
-		</InView>
+		</div>
 	);
 }
 

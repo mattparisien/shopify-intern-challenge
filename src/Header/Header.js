@@ -27,7 +27,7 @@ function Header() {
 		>
 			<Container>
 				<div className='content flex w-full h-full items-center justify-between'>
-					<div className='header-logo transition ease duration-300'>
+					<div className='header-logo transition ease duration-300 font-semibold'>
 						Prompt it!
 					</div>
 					<button

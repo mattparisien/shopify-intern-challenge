@@ -23,13 +23,12 @@ body {
 	overflow-x: hidden;
 }
 
-:root,
-body,
-#root {
-	width: 100%;
-	height: 100%;
+body {
 	font-family: "Mori";
-	scroll-behavior: smooth;
+}
+
+#root {
+	min-height: 100vh;
 }
 
 textArea:focus {
