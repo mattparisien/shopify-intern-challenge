@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import React, { useContext } from "react";
 import { GlobalContext } from "../App/App";
 
-function ListItemPopover({ listItemId }) {
+function ListItemPopover({ listItemId, isLiked, toggleSelf }) {
 	const { ACTIONS } = useContext(GlobalContext);
 
 	const options = [
@@ -14,7 +14,7 @@ function ListItemPopover({ listItemId }) {
 			action: "edit",
 		},
 		{
-			title: "Like",
+			title: !isLiked ? "Like" : "Unlike",
 			icon: FavoriteIcon,
 			action: "like",
 		},
@@ -28,6 +28,7 @@ function ListItemPopover({ listItemId }) {
 	const handleClick = action => {
 		const currentAction = ACTIONS[action];
 		currentAction(listItemId);
+		toggleSelf();
 	};
 
 	return (

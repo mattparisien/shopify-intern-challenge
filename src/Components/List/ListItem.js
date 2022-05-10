@@ -6,7 +6,7 @@ import ListItemFooter from "./ListItemFooter";
 import MoreButton from "./MoreButton";
 import ListItemPopover from "./ListItemPopover";
 
-function ListItem({ id, prompt, response, datePosted }) {
+function ListItem({ id, prompt, response, datePosted, isLiked }) {
 	const [popoverActive, setPopoverActive] = useState(false);
 
 	const variants = {
@@ -34,7 +34,13 @@ function ListItem({ id, prompt, response, datePosted }) {
 			<ListItemBody prompt={prompt} response={response} />
 			<ListItemFooter datePosted={datePosted} />
 			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
-			{popoverActive && <ListItemPopover listItemId={id}/>}
+			{popoverActive && (
+				<ListItemPopover
+					listItemId={id}
+					isLiked={isLiked}
+					toggleSelf={() => setPopoverActive(!popoverActive)}
+				/>
+			)}
 		</motion.li>
 	);
 }

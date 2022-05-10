@@ -22,7 +22,18 @@ function App() {
 	};
 
 	const likeListItem = id => {
-		
+		setListItems(prevState => {
+			const likedItem = prevState.find(item => item.id === id);
+			likedItem["isLiked"] = true;
+
+			const updatedState = prevState.splice(
+				prevState.indexOf(prevState.find(item => item.id === id)),
+				1,
+				likedItem
+			);
+
+			return updatedState;
+		});
 	};
 
 	const ACTIONS = {
