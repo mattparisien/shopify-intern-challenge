@@ -1,10 +1,10 @@
 .Section_hero .hero-content {
-	padding-top: 4vw;
+	padding-top: 8vw;
 }
 
 .hero-word {
-	font-size: 14vw;
-	line-height: 14vw;
+	font-size: 12vw;
+	line-height: 12vw;
 }
 
 .hero-word:first-child {
@@ -16,7 +16,7 @@
 }
 
 .hero-word:nth-child(2) {
-	top: 17vw;
+	top: 19vw;
 	left: 2vw;
 }
 .hero-word:nth-child(3) {
