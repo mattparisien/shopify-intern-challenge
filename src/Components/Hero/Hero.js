@@ -22,7 +22,7 @@ function Hero() {
 
 	return (
 		<Section name='hero' disableContainer>
-			<div className='hero-content flex flex-col items-center justify-center overflow-hidden md:block relative h-screen bg-blue-800 w-full text-cream '>
+			<div className='hero-content flex flex-col items-center justify-center  md:block relative h-screen bg-cream-800 w-full text-cream '>
 				{words.map((word, i) => (
 					<h2 key={i} className='hero-word md:absolute sticky z-10'>
 						<SplitText enterDelay={2.4 + i / 10}>{word}</SplitText>

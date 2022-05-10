@@ -27,9 +27,9 @@
 
 @keyframes spinIntroAnim {
 	0% {
-		transform: translate(-50%, -50%) rotate(0deg) scale(0);
+		transform: translate(-50%, 65%) rotate(0deg) scale(0);
 	}
 	100% {
-		transform: translate(-50%, -50%) rotate(360deg) scale(4.1);
+		transform: translate(-50%, 65%) rotate(360deg) scale(1.7);
 	}
 }

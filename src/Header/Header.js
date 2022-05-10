@@ -26,11 +26,11 @@ function Header() {
 			className={`Header fixed top-0 left-0 w-screen h-20 bg-transparent text-${currentColor} z-50`}
 		>
 			<Container>
-				<div className='content flex w-full h-full items-center justify-between'>
-					<div className='header-logo transition ease duration-300'>
+				<div className='content flex w-full h-full items-center justify-center'>
+					<div className='header-logo transition ease duration-300 text-violet-900 text-3xl'>
 						Prompt it!
 					</div>
-					<button
+					{/* <button
 						className='header-cta cursor-pointer'
 						onClick={() => window.scrollTo(0, window.innerHeight)}
 					>
@@ -41,7 +41,7 @@ function Header() {
 							className='transition ease duration-300'
 							sx={{ transform: "rotate(-90deg)", width: "1rem" }}
 						/>
-					</button>
+					</button> */}
 				</div>
 			</Container>
 		</header>
