@@ -11,7 +11,7 @@ function Hero() {
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPos = window.scrollY / 10;
-			console.log(ref.current);
+
 			ref.current.style.transform = `rotate(${scrollPos}deg)`;
 		};
 

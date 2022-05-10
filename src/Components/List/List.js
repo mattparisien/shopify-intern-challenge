@@ -1,14 +1,9 @@
 import React from "react";
 import ListItem from "./ListItem";
-import { useContext } from "react";
-import { GlobalContext } from "../App/App";
-import { Global } from "@emotion/react";
 
 function List({ items }) {
 	const classes =
 		"List text-dark w-full flex flex-col items-start justify-start";
-
-		console.log('the items', items)
 
 	return (
 		<ul className={classes}>

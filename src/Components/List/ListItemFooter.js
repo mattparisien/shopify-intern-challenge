@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
 import moment from "moment";
-import SocialList from "./SocialList";
+import React, { useMemo } from "react";
 
 function ListItemFooter({ datePosted }) {
 	const date = useMemo(() => {

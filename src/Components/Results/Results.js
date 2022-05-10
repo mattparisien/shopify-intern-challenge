@@ -1,9 +1,7 @@
-import React from "react";
-import Section from "../Section/Section";
-import List from "../List/List";
-import Heading from "../Heading/Heading";
+import React, { useContext } from "react";
 import { GlobalContext } from "../App/App";
-import { useContext } from "react";
+import Heading from "../Heading/Heading";
+import List from "../List/List";
 
 function Results() {
 	const { listItems } = useContext(GlobalContext);
