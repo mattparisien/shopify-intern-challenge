@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import React from "react";
 import "./ListItem.css";
-import { motion } from "framer-motion";
 import ListItemBody from "./ListItemBody";
 import ListItemFooter from "./ListItemFooter";
 

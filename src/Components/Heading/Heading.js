@@ -1,5 +1,4 @@
 import React from "react";
-import SplitText from "../SplitText/SplitText";
 
 function Heading(props) {
 	return (

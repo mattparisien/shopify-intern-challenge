@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Components/Container/Container";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./Header.css";
 
 function Header() {
