@@ -1,11 +1,10 @@
 import React from "react";
-import "./Button.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function Button({ onClick, children, type, isLoading }) {
 	return (
 		<button
-			className='Button w-40 h-10 rounded-lg flex items-center justify-center  relative text-cream text-lg bg-dark border-opacity-30 transition ease delay-100 hover:bg-blue-400'
+			className='Button w-40 h-10 rounded-lg flex items-center justify-center  relative text-cream text-lg bg-dark border-opacity-30 transition ease duration-300 hover:bg-blue-400'
 			onClick={onClick}
 			type={type}
 		>
