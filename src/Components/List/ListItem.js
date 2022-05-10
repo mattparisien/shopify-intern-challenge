@@ -32,7 +32,7 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 			animate={"visible"}
 		>
 			<ListItemBody prompt={prompt} response={response} />
-			<ListItemFooter datePosted={datePosted} />
+			<ListItemFooter datePosted={datePosted} isLiked={isLiked} />
 			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
 			{popoverActive && (
 				<ListItemPopover

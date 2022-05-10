@@ -15,7 +15,7 @@ function ListItemFooter({ datePosted, isLiked }) {
 			<span className='time text-neutral-400 block  text-sm'>
 				Posted on {date}
 			</span>
-			{!isLiked && <LikeIcon />}
+			{isLiked && <LikeIcon />}
 		</footer>
 	);
 }

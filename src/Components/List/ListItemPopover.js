@@ -16,7 +16,7 @@ function ListItemPopover({ listItemId, isLiked, toggleSelf }) {
 		{
 			title: !isLiked ? "Like" : "Unlike",
 			icon: FavoriteIcon,
-			action: "like",
+			action: !isLiked ? "like" : "unlike",
 		},
 		{
 			title: "Delete",

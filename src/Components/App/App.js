@@ -36,10 +36,26 @@ function App() {
 		});
 	};
 
+	const unlikeListItem = id => {
+		setListItems(prevState => {
+			const likedItem = prevState.find(item => item.id === id);
+			likedItem["isLiked"] = false;
+
+			const updatedState = prevState.splice(
+				prevState.indexOf(prevState.find(item => item.id === id)),
+				1,
+				likedItem
+			);
+
+			return updatedState;
+		});
+	};
+
 	const ACTIONS = {
 		delete: deleteListItem,
 		edit: editListItem,
 		like: likeListItem,
+		unlike: unlikeListItem,
 	};
 
 	return (
