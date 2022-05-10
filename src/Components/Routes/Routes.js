@@ -3,16 +3,20 @@ import { Routes as ReactRoutes, Route } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
 import AboutPage from "../Pages/AboutPage";
 import { AnimatePresence } from "framer-motion";
+import Page from "../Pages/Page";
+import { useLocation } from "react-router-dom";
 
 function Routes() {
+	const location = useLocation();
+
 	const routesMap = [
 		{
-			title: "Home",
+			title: "home",
 			path: "/",
 			component: HomePage,
 		},
 		{
-			title: "About",
+			title: "about",
 			path: "/about",
 			component: AboutPage,
 		},
@@ -20,12 +24,14 @@ function Routes() {
 
 	return (
 		<AnimatePresence exitBeforeEnter>
-			<ReactRoutes>
+			<ReactRoutes location={location} key={location.pathname}>
 				{routesMap.map((route, i) => (
 					<Route
-						key={i}
-						element={React.createElement(route.component)}
+						element={
+							<Page innerComponent={route.component} name={route.title} />
+						}
 						path={route.path}
+						key={location.pathname}
 					/>
 				))}
 			</ReactRoutes>

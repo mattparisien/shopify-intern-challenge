@@ -6,10 +6,8 @@ import Page from "./Page";
 function HomePage() {
 	return (
 		<>
-			<Page name="home">
-				<Hero />
-				<MainInterface />
-			</Page>
+			<Hero />
+			<MainInterface />
 		</>
 	);
 }
