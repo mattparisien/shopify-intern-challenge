@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Section from "../Section/Section";
-import SplitText from "../SplitText/SplitText";
+import SplitText from "../Animation/SplitText";
 import "./Hero.css";
 import Star from "./Star";
 
