@@ -1,7 +1,6 @@
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import moment from "moment";
 import React, { useMemo } from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { motion } from "framer-motion";
 
 function ListItemFooter({ datePosted, isLiked }) {
 	const date = useMemo(() => {

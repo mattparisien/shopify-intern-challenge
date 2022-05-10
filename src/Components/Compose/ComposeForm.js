@@ -91,13 +91,13 @@ function ComposeForm() {
 			<form className='form w-full' onSubmit={handleSubmit}>
 				<textarea
 					className='text-dark bg-transparent border-b rounded-l w-full'
-					placeholder={"I love bagels"}
+					placeholder={"Ask anything!"}
 					name='prompt'
 					value={value}
 					onChange={handleChange}
 					autoFocus={true}
 					style={{ resize: "none" }}
-				></textarea>
+				/>
 				<FormError error={error} />
 				<div className='cta-wrapper w-full flex md:justify-end'>
 					<Button type='submit' isLoading={loading}>

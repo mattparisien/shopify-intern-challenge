@@ -1,10 +1,9 @@
-import EditIcon from "@mui/icons-material/Edit";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import React, { useContext } from "react";
 import { GlobalContext } from "../../App/App";
 
-function ListItemPopover({ listItemId, isLiked, toggleSelf, toggleView }) {
+function ListItemPopover({ listItemId, isLiked, toggleSelf }) {
 	const { ACTIONS } = useContext(GlobalContext);
 
 	const options = [
@@ -23,7 +22,7 @@ function ListItemPopover({ listItemId, isLiked, toggleSelf, toggleView }) {
 	const handleClick = action => {
 		const currentAction = ACTIONS[action];
 		currentAction(listItemId);
-		action === "edit" && toggleView();
+
 		toggleSelf();
 	};
 
