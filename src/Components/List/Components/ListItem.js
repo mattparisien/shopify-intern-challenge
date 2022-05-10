@@ -6,8 +6,6 @@ import ListItemFooter from "./ListItemFooter";
 import ListItemPopover from "./ListItemPopover";
 import MoreButton from "./MoreButton";
 
-export const ListItemContext = createContext();
-
 function ListItem({ id, prompt, response, datePosted, isLiked }) {
 	const [popoverActive, setPopoverActive] = useState(false);
 
