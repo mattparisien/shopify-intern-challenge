@@ -20,11 +20,24 @@ function App() {
 	const scrollRef = useRef(null);
 
 	const deleteListItem = id => {
-		console.log('the id...', id)
+		setListItems(prevState => [
+			...prevState.filter(listItem => listItem.id !== id),
+		]);
+	};
+	const editListItem = id => {
+		console.log("the id...", id);
+	};
+
+	const likeListItem = id => {};
+
+	const ACTIONS = {
+		delete: deleteListItem,
+		edit: editListItem,
+		like: likeListItem,
 	};
 
 	return (
-		<GlobalContext.Provider value={{ listItems, setListItems, deleteListItem }}>
+		<GlobalContext.Provider value={{ listItems, setListItems, ACTIONS }}>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<div className='scroll-wrapper' ref={scrollRef} data-scroll-container>
