@@ -11,7 +11,6 @@ export const GlobalContext = createContext();
 
 function App() {
 	const [listItems, setListItems] = useState([]);
-	const scrollRef = useRef(null);
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -22,7 +21,9 @@ function App() {
 		console.log("the id...", id);
 	};
 
-	const likeListItem = id => {};
+	const likeListItem = id => {
+		
+	};
 
 	const ACTIONS = {
 		delete: deleteListItem,
@@ -34,16 +35,14 @@ function App() {
 		<GlobalContext.Provider value={{ listItems, setListItems, ACTIONS }}>
 			<ScrollTop>
 				<div className='App bg-cream'>
-					<div className='scroll-wrapper' ref={scrollRef} data-scroll-container>
-						<Header />
+					<Header />
 
-						<main>
-							<EntryScreen />
-							<Hero />
-							<MainInterface />
-						</main>
-						<Footer />
-					</div>
+					<main>
+						<EntryScreen />
+						<Hero />
+						<MainInterface />
+					</main>
+					<Footer />
 				</div>
 			</ScrollTop>
 			{/* <Cursor /> */}

@@ -55,6 +55,7 @@ function ComposeForm() {
 					prompt: prompt,
 					response: response.choices[0].text,
 					datePosted: new Date(),
+					isLiked: false,
 				},
 				...prevState,
 			]);
