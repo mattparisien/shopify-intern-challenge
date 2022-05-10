@@ -19,8 +19,12 @@ function App() {
 	const [listItems, setListItems] = useState([]);
 	const scrollRef = useRef(null);
 
+	const deleteListItem = id => {
+		console.log('the id...', id)
+	};
+
 	return (
-		<GlobalContext.Provider value={{ listItems, setListItems }}>
+		<GlobalContext.Provider value={{ listItems, setListItems, deleteListItem }}>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<div className='scroll-wrapper' ref={scrollRef} data-scroll-container>

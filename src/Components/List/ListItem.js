@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import "./ListItem.css";
 import ListItemBody from "./ListItemBody";
 import ListItemFooter from "./ListItemFooter";
+import MoreButton from "./MoreButton";
+import ListItemPopover from "./ListItemPopover";
 
 function ListItem({ prompt, response, datePosted }) {
+	const [popoverActive, setPopoverActive] = useState(false);
+
 	const variants = {
 		hidden: {
 			opacity: 0,
@@ -29,6 +33,8 @@ function ListItem({ prompt, response, datePosted }) {
 		>
 			<ListItemBody prompt={prompt} response={response} />
 			<ListItemFooter datePosted={datePosted} />
+			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
+			{popoverActive && <ListItemPopover />}
 		</motion.li>
 	);
 }
