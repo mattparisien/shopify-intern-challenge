@@ -23,31 +23,31 @@ function App() {
 
 	const likeListItem = id => {
 		setListItems(prevState => {
-			const likedItem = prevState.find(item => item.id === id);
+			const newState = [...prevState];
+			const likedItem = newState.find(item => item.id === id);
 			likedItem["isLiked"] = true;
 
-			const updatedState = prevState.splice(
-				prevState.indexOf(prevState.find(item => item.id === id)),
-				1,
-				likedItem
-			);
+			const newObject =
+				newState[newState.indexOf(newState.find(x => x.id === id))];
+			const location = newState.findIndex(x => x.id === id);
+			newState[location] = newObject;
 
-			return updatedState;
+			return newState;
 		});
 	};
 
 	const unlikeListItem = id => {
 		setListItems(prevState => {
-			const likedItem = prevState.find(item => item.id === id);
+			const newState = [...prevState];
+			const likedItem = newState.find(item => item.id === id);
 			likedItem["isLiked"] = false;
 
-			const updatedState = prevState.splice(
-				prevState.indexOf(prevState.find(item => item.id === id)),
-				1,
-				likedItem
-			);
+			const newObject =
+				newState[newState.indexOf(newState.find(x => x.id === id))];
+			const location = newState.findIndex(x => x.id === id);
+			newState[location] = newObject;
 
-			return updatedState;
+			return newState;
 		});
 	};
 
