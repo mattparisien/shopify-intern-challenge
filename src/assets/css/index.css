@@ -4,13 +4,13 @@ code {
 }
 
 @font-face {
-	src: url("./assets/fonts/PPMori-Regular.otf");
+	src: url("../fonts/PPMori-Regular.otf");
 	font-family: "Mori";
 	font-weight: 200;
 }
 
 @font-face {
-	src: url("./assets/fonts/PPMori-SemiBold.otf");
+	src: url("../fonts/PPMori-SemiBold.otf");
 	font-family: "Mori";
 	font-weight: 600;
 }
