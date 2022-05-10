@@ -1,5 +1,5 @@
 .Section_hero .hero-content {
-	padding-top: 4vw;
+	padding-top: 10vw;
 }
 
 .hero-word {
@@ -16,7 +16,7 @@
 }
 
 .hero-word:nth-child(2) {
-	top: 17vw;
+	top: 23vw;
 	left: 2vw;
 }
 .hero-word:nth-child(3) {
