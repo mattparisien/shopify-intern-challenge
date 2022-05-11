@@ -1,13 +1,16 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import moment from "moment";
 import React, { useMemo } from "react";
+import useInterval from "../../../hooks/useInterval";
 
 function ListItemFooter({ datePosted, isLiked }) {
+	const { pinger } = useInterval(60000);
+
 	const date = useMemo(() => {
 		if (datePosted) {
 			return moment(datePosted).fromNow();
 		}
-	}, [datePosted]);
+	}, [datePosted, pinger]);
 
 	return (
 		<footer className='ListItemFooter border-t mt-5 pt-4 flex justify-between items-center'>

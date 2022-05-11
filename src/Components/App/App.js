@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
-import Header from "../Header/Header";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
@@ -11,6 +11,7 @@ export const GlobalContext = createContext();
 
 function App() {
 	const [listItems, setListItems] = useState([]);
+	const [searchResults, setSearchResults] = useState(null);
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -48,18 +49,40 @@ function App() {
 		});
 	};
 
+	const setSearch = searchTerm => {
+		if (!searchTerm || searchTerm === "") {
+			console.log('this should get called!')
+			setSearchResults(null);
+			return;
+		}
+
+		const items = listItems;
+
+		const results = items.filter(item =>
+			item.prompt
+				.toLowerCase()
+				.includes(
+					searchTerm.toLowerCase() ||
+						item.response.toLowerCase().includes(searchTerm.toLowerCase())
+				)
+		);
+		setSearchResults(results);
+	};
+
 	const ACTIONS = {
 		delete: deleteListItem,
 		like: likeListItem,
 		unlike: unlikeListItem,
+		setSearch: setSearch,
 	};
 
 	return (
-		<GlobalContext.Provider value={{ listItems, setListItems, ACTIONS }}>
+		<GlobalContext.Provider
+			value={{ listItems, setListItems, searchResults, ACTIONS }}
+		>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
-
 					<main>
 						<EntryScreen />
 						<Hero />

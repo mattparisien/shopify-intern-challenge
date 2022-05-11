@@ -1,16 +1,24 @@
 import React from "react";
-import Section from "../Section/Section";
 import Compose from "../Compose/Compose";
 import Results from "../Results/Results";
+import Search from "../Search/Search";
+import Section from "../Section/Section";
 
 function MainInterface() {
 	return (
-		<Section name='main-interface'>
-			<div className='flex-wrapper flex flex-col justify-between md:flex-row py-40 w-full'>
-				<Compose />
-				<Results />
-			</div>
-		</Section>
+		<>
+			<Section name='MainInterface'>
+				<div className='content-wrapper flex flex-col md:flex-row w-full py-20 md:y-40'>
+					<div className='flex flex-col mb-20 w-full md:w-2/4 md:pr-10 md:mb-0'>
+						<Compose />
+						<Search />
+					</div>
+					<div className='w-full md:w-2/4 md:pl-10'>
+						<Results />
+					</div>
+				</div>
+			</Section>
+		</>
 	);
 }
 

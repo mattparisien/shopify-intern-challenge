@@ -4,6 +4,7 @@ import { Container as MuiContainer } from "@mui/material";
 function Container({ children }) {
 	return (
 		<MuiContainer
+		maxWidth="lg"
 			sx={{
 				width: "100%",
 				height: "100%",
