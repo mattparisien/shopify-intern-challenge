@@ -12,7 +12,7 @@ function ListItemFooter({ datePosted, isLiked }) {
 	return (
 		<footer className='ListItemFooter border-t mt-5 pt-4 flex justify-between items-center'>
 			<span className='time text-neutral-400 block  text-sm'>
-				Posted on {date}
+				Posted {date}
 			</span>
 			<LikeIcon isActive={isLiked} />
 		</footer>
