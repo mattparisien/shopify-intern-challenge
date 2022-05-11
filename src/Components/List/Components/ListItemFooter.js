@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 function ListItemFooter({ datePosted, isLiked }) {
 	const date = useMemo(() => {
 		if (datePosted) {
-			return moment(datePosted).format("DD/MM/YYYY");
+			return moment(datePosted).fromNow();
 		}
 	}, [datePosted]);
 
