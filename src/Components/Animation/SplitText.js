@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import useInView from "../../hooks/useInView";
 
 function SplitText(props) {
 	const wordStyle = {
