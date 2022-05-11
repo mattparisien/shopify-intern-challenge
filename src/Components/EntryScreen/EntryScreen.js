@@ -14,7 +14,6 @@ function EntryScreen() {
 
 	const [ready, setReady] = useState(false);
 	const [done, setDone] = useState(false);
-	const hasSetInterval = useRef(false);
 	const [currWord, setCurrWord] = useState(words.current[0]);
 
 	const handleInterval = useCallback(() => {

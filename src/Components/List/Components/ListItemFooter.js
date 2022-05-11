@@ -3,6 +3,8 @@ import moment from "moment";
 import React, { useMemo } from "react";
 
 function ListItemFooter({ datePosted, isLiked }) {
+	console.log(isLiked);
+
 	const date = useMemo(() => {
 		if (datePosted) {
 			return moment(datePosted).format("DD/MM/YYYY");
@@ -20,30 +22,10 @@ function ListItemFooter({ datePosted, isLiked }) {
 }
 
 function LikeIcon({ isActive }) {
-	const variants = {
-		hidden: {
-			scale: 0,
-		},
-		visible: {
-			scale: 1,
-			transition: {
-				duration: 0.5,
-				ease: [0.215, 0.61, 0.355, 1],
-				delay: 0.1,
-			},
-		},
-		exit: {
-			scale: 0,
-			duration: 0.5,
-			ease: [0.215, 0.61, 0.355, 1],
-		},
-	};
-
 	return (
 		<span
-			className={`LikeIcon block scale-${
-				isActive ? 1 : 0
-			} transition ease duration-300`}
+			className={`LikeIcon block transition ease duration-300`}
+			style={{ transform: `scale(${isActive ? 1 : 0})` }}
 		>
 			<FavoriteIcon sx={{ width: "1.3rem", fill: "pink" }} />
 		</span>

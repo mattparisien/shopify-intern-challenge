@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
+import FadeUpChildren from "../Animation/FadeUpChildren";
 import { GlobalContext } from "../App/App";
 import Heading from "../Heading/Heading";
 import List from "../List/List";
-import useInView from "../../hooks/useInView";
-import FadeUpChildren from "../Animation/FadeUpChildren";
 
 function Results() {
 	const { listItems } = useContext(GlobalContext);

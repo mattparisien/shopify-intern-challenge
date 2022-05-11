@@ -68,7 +68,6 @@ function App() {
 					<Footer />
 				</div>
 			</ScrollTop>
-			{/* <Cursor /> */}
 		</GlobalContext.Provider>
 	);
 }
