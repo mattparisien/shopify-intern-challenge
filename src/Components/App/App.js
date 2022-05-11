@@ -82,7 +82,7 @@ function App() {
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
-					<main>
+					<main data-scroll-container>
 						<EntryScreen />
 						<Hero />
 						<MainInterface />
