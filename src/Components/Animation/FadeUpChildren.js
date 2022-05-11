@@ -20,11 +20,12 @@ function FadeUpChildren({ children }) {
 	return (
 		<div className='view-wrapper' ref={ref}>
 			{Array.isArray(children) ? (
-				children.map(child => (
+				children.map((child, i) => (
 					<motion.div
+						key={i}
 						className='motion-wrap'
 						variants={variants}
-						animate={inView && 'visible'}
+						animate={inView && "visible"}
 						initial='hidden'
 					>
 						{child}
@@ -34,7 +35,7 @@ function FadeUpChildren({ children }) {
 				<motion.div
 					className='motion-wrap'
 					variants={variants}
-					animate={inView && 'visible'}
+					animate={inView && "visible"}
 					initial='hidden'
 				>
 					{children}
