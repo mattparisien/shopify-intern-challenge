@@ -3,8 +3,6 @@ import moment from "moment";
 import React, { useMemo } from "react";
 
 function ListItemFooter({ datePosted, isLiked }) {
-	console.log(isLiked);
-
 	const date = useMemo(() => {
 		if (datePosted) {
 			return moment(datePosted).format("DD/MM/YYYY");

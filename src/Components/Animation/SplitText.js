@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 function SplitText(props) {
 	const wordStyle = {
 		display: "inline-block",
-		marginLeft: "1rem"
+		marginLeft: "1rem",
 	};
 
 	const charStyle = {
@@ -21,7 +21,6 @@ function SplitText(props) {
 			opacity: 1,
 			y: 0,
 			transition: { duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] },
-			
 		},
 		exit: {
 			opacity: 0,

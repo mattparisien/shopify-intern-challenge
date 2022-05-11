@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useState } from "react";
 import Header from "../../Header/Header";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
