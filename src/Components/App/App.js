@@ -51,7 +51,6 @@ function App() {
 
 	const setSearch = searchTerm => {
 		if (!searchTerm || searchTerm === "") {
-			console.log('this should get called!')
 			setSearchResults(null);
 			return;
 		}
