@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import Form from "../Form/Form";
+import { GlobalContext } from "../App/App";
+import Input from "../Form/Input";
 
 function SearchBar() {
-	const inputMap = [
-		{
-			component: "input",
-			placeholder: "Search for anything",
-			name: "search",
-		},
-	];
+	const { ACTIONS } = useContext(GlobalContext);
+	const [value, setValue] = useState("");
 
-	const handleSubmit = () => {};
+	const handleChange = e => {
+		setValue(e.target.value);
+	};
+
+	useEffect(() => {
+		value && ACTIONS.setSearch(value);
+	}, [value]);
 
 	return (
-		<Form
-			inputs={inputMap}
-			onSubmit={handleSubmit}
-			buttonText={"Search"}
-			disableButton
+		<Input
+			placeholder='Search for anything'
+			value={value}
+			name={"search"}
+			onChange={handleChange}
 		/>
 	);
 }

@@ -4,8 +4,16 @@ import FormError from "./FormError";
 import TextArea from "./TextArea";
 import Input from "./Input";
 
-function Form({ inputs, onSubmit, className, buttonText, disableButton }) {
-	console.log(inputs, onSubmit, className, buttonText);
+function Form({
+	inputs,
+	onSubmit,
+	onChange,
+	className,
+	buttonText,
+	disableButton,
+}) {
+
+
 
 	const components = {
 		textarea: TextArea,
@@ -47,9 +55,14 @@ function Form({ inputs, onSubmit, className, buttonText, disableButton }) {
 	}, [inputs]);
 
 	const handleChange = (event, inputName) => {
-		setError(null);
 		const currVal = event.target.value;
 		setValue(prevState => ({ ...prevState, [inputName]: currVal }));
+
+		if (onChange) {
+			onChange(event, value);
+		}
+
+		setError(null);
 	};
 
 	return (

@@ -11,6 +11,7 @@ export const GlobalContext = createContext();
 
 function App() {
 	const [listItems, setListItems] = useState([]);
+	const [searchResults, setSearchResults] = useState([]);
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -48,14 +49,25 @@ function App() {
 		});
 	};
 
+	const setSearch = searchTerm => {
+		const items = listItems;
+		const results = items.filter(item =>
+			item.prompt.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+		setSearchResults(results);
+	};
+
 	const ACTIONS = {
 		delete: deleteListItem,
 		like: likeListItem,
 		unlike: unlikeListItem,
+		setSearch: setSearch,
 	};
 
 	return (
-		<GlobalContext.Provider value={{ listItems, setListItems, ACTIONS }}>
+		<GlobalContext.Provider
+			value={{ listItems, setListItems, searchResults, ACTIONS }}
+		>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
