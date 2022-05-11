@@ -27,11 +27,11 @@ function Header() {
 		>
 			<Container>
 				<div className='content flex w-full h-full items-center justify-between'>
-					<div className='header-logo transition ease duration-300 font-semibold'>
+					<div className='header-logo transition ease duration-300 text-2xl'>
 						Prompt it!
 					</div>
 					<button
-						className='header-cta cursor-pointer'
+						className='header-cta cursor-pointer hover:opacity-50 transition ease duration-300'
 						onClick={() => window.scrollTo(0, window.innerHeight)}
 					>
 						<span className='pr-2 transition ease duration-300'>
