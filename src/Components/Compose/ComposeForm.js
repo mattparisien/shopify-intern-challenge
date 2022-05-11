@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../App/App";
 import Button from "../Button/Button";
+import Form from "../Form/Form";
 import FormError from "./FormError";
 
 function ComposeForm() {
