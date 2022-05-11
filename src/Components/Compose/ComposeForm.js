@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../App/App";
 import Button from "../Button/Button";
-import Form from "../Form/Form";
+// import Form from "../Form/Form";
 import FormError from "./FormError";
+import Form from "../Form/Form";
 
 function ComposeForm() {
 	const { setListItems, listItems } = useContext(GlobalContext);
@@ -87,26 +88,35 @@ function ComposeForm() {
 		setValue(e.target.value);
 	};
 
+	const inputMap = [
+		{
+			component: "textarea",
+			placeholder: "Say anything!",
+			name: "prompt",
+		},
+	];
+
 	return (
-		<div className='ComposeForm w-full flex-1  text-dark rounded-lg pr-4 py-4'>
-			<form className='form w-full' onSubmit={handleSubmit}>
-				<textarea
-					className='text-dark bg-transparent border-b rounded-l w-full'
-					placeholder={"Ask anything!"}
-					name='prompt'
-					value={value}
-					onChange={handleChange}
-					autoFocus={true}
-					style={{ resize: "none" }}
-				/>
-				<FormError error={error} />
-				<div className='cta-wrapper w-full flex md:justify-end'>
-					<Button type='submit' isLoading={loading}>
-						Submit prompt
-					</Button>
-				</div>
-			</form>
-		</div>
+		<Form inputs={inputMap} buttonText={"Submit"}/>
+		// <div className='ComposeForm w-full flex-1  text-dark rounded-lg pr-4 py-4'>
+		// 	<form className='form w-full' onSubmit={handleSubmit}>
+		// 		<textarea
+		// 			className='text-dark bg-transparent border-b rounded-l w-full'
+		// 			placeholder={"Ask anything!"}
+		// 			name='prompt'
+		// 			value={value}
+		// 			onChange={handleChange}
+		// 			autoFocus={true}
+		// 			style={{ resize: "none" }}
+		// 		/>
+		// 		<FormError error={error} />
+		// 		<div className='cta-wrapper w-full flex md:justify-end'>
+		// 			<Button type='submit' isLoading={loading}>
+		// 				Submit prompt
+		// 			</Button>
+		// 		</div>
+		// 	</form>
+		// </div>
 	);
 }
 

@@ -3,7 +3,7 @@ import React from "react";
 function TextArea({ placeholder, value, name }) {
 	return (
 		<textarea
-			classNam='TextArea text-dark bg-transparent border-b rounded-l w-full'
+			className='TextArea text-dark bg-transparent border-b rounded-l w-full'
 			name={name}
 			value={value}
 			placeholder={placeholder}
