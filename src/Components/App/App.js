@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
@@ -11,7 +11,11 @@ export const GlobalContext = createContext();
 
 function App() {
 	const [listItems, setListItems] = useState([]);
-	const [searchResults, setSearchResults] = useState([]);
+	const [searchResults, setSearchResults] = useState(null);
+
+	useEffect(() => {
+		console.log('app is rendering twice')
+	}, [])
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -50,9 +54,22 @@ function App() {
 	};
 
 	const setSearch = searchTerm => {
+
+		console.log(searchTerm)
+
+		if (!searchTerm || searchTerm === "") {
+			setSearchResults(null);
+		}
+
 		const items = listItems;
+
 		const results = items.filter(item =>
-			item.prompt.toLowerCase().includes(searchTerm.toLowerCase())
+			item.prompt
+				.toLowerCase()
+				.includes(
+					searchTerm.toLowerCase() ||
+						item.response.toLowerCase().includes(searchTerm.toLowerCase())
+				)
 		);
 		setSearchResults(results);
 	};
@@ -71,7 +88,6 @@ function App() {
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
-
 					<main>
 						<EntryScreen />
 						<Hero />

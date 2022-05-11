@@ -12,7 +12,11 @@ function Results() {
 			<FadeUpChildren>
 				<Heading id='#anchor'>Your results</Heading>
 				{listItems[0] && (
-					<List items={searchResults ? searchResults : listItems} />
+					<List
+						items={
+							searchResults && searchResults[0] ? searchResults : listItems
+						}
+					/>
 				)}
 				{!listItems[0] && (
 					<p className='text-neutral-500 text-left' id='scroll-anchor'>

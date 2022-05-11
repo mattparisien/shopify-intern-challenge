@@ -1,32 +1,22 @@
 import React from "react";
-import Section from "../Section/Section";
 import Compose from "../Compose/Compose";
 import Results from "../Results/Results";
 import Search from "../Search/Search";
-import Flex from "../Flex/Flex";
-import "./MainInterface.css";
+import Section from "../Section/Section";
 
 function MainInterface() {
 	return (
 		<>
 			<Section name='MainInterface'>
-				<Flex direction='row' containerWidth='full' py={"40"} breakOnMobile>
-					<Flex
-						justifyContent='start'
-						alignItems={"start"}
-						direction='col'
-						containerWidth='2/4'
-						pr={"10"}
-						breakOnMobile
-						extraClasses="md:sticky"
-					>
+				<div className='content-wrapper flex w-full py-40'>
+					<div className='flex flex-col w-2/4 pr-10'>
 						<Compose />
 						<Search />
-					</Flex>
-					<Flex containerWidth={"2/4"} pl={"10"} position="relative">
+					</div>
+					<div className="w-2/4 pl-10">
 						<Results />
-					</Flex>
-				</Flex>
+					</div>
+				</div>
 			</Section>
 		</>
 	);

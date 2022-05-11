@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext, useCallback } from "react";
-import Form from "../Form/Form";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { GlobalContext } from "../App/App";
 import Input from "../Form/Input";
 
@@ -7,12 +6,21 @@ function SearchBar() {
 	const { ACTIONS } = useContext(GlobalContext);
 	const [value, setValue] = useState("");
 
+	const isDirty = useRef(false);
+	const isFirstRender = useRef(true);
+
 	const handleChange = e => {
+		if (!isDirty.current) {
+			isDirty.current = true;
+		}
+
 		setValue(e.target.value);
 	};
 
 	useEffect(() => {
-		value && ACTIONS.setSearch(value);
+			
+
+		ACTIONS.setSearch(value);
 	}, [value]);
 
 	return (
