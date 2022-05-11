@@ -13,7 +13,7 @@ function MainInterface() {
 						<Compose />
 						<Search />
 					</div>
-					<div className="w-full md:w-2/4 md:pl-10">
+					<div className='w-full md:w-2/4 md:pl-10'>
 						<Results />
 					</div>
 				</div>

@@ -2,6 +2,7 @@
 	padding-top: 8vw;
 	height: 80vw;
 	max-height: 100vh;
+	min-height: 600px;
 }
 
 .hero-word {
