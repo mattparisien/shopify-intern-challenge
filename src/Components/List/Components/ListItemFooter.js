@@ -4,7 +4,7 @@ import React, { useEffect, useMemo } from "react";
 import useInterval from "../../../hooks/useInterval";
 
 function ListItemFooter({ datePosted, isLiked }) {
-	const { pinger } = useInterval(500);
+	const { pinger } = useInterval(60000);
 
 	const date = useMemo(() => {
 		if (datePosted) {
