@@ -1,6 +1,6 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import moment from "moment";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import useInterval from "../../../hooks/useInterval";
 
 function ListItemFooter({ datePosted, isLiked }) {

@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState } from "react";
-import Header from "../Header/Header";
+import { createContext, useState } from "react";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
