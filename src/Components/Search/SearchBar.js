@@ -18,9 +18,8 @@ function SearchBar() {
 	};
 
 	useEffect(() => {
-			
-
-		ACTIONS.setSearch(value);
+		!isFirstRender.current && ACTIONS.setSearch(value);
+		isFirstRender.current = false;
 	}, [value]);
 
 	return (

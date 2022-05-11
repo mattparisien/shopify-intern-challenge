@@ -13,10 +13,6 @@ function App() {
 	const [listItems, setListItems] = useState([]);
 	const [searchResults, setSearchResults] = useState(null);
 
-	useEffect(() => {
-		console.log('app is rendering twice')
-	}, [])
-
 	const deleteListItem = id => {
 		setListItems(prevState => [
 			...prevState.filter(listItem => listItem.id !== id),
@@ -54,11 +50,10 @@ function App() {
 	};
 
 	const setSearch = searchTerm => {
-
-		console.log(searchTerm)
-
 		if (!searchTerm || searchTerm === "") {
+			console.log('this should get called!')
 			setSearchResults(null);
+			return;
 		}
 
 		const items = listItems;

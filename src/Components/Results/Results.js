@@ -3,6 +3,7 @@ import FadeUpChildren from "../Animation/FadeUpChildren";
 import { GlobalContext } from "../App/App";
 import Heading from "../Heading/Heading";
 import List from "../List/List";
+import DefaultMessage from "./DefaultMessage";
 
 function Results() {
 	const { listItems, searchResults } = useContext(GlobalContext);
@@ -12,16 +13,13 @@ function Results() {
 			<FadeUpChildren>
 				<Heading id='#anchor'>Your results</Heading>
 				{listItems[0] && (
-					<List
-						items={
-							searchResults && searchResults[0] ? searchResults : listItems
-						}
-					/>
+					<List items={searchResults ? searchResults : listItems} />
 				)}
 				{!listItems[0] && (
-					<p className='text-neutral-500 text-left' id='scroll-anchor'>
-						Compose a prompt to get started
-					</p>
+					<DefaultMessage message='Compose a prompt to get started' />
+				)}
+				{searchResults && !searchResults[0] && listItems[0] && (
+					<DefaultMessage message='No results were found' />
 				)}
 			</FadeUpChildren>
 		</div>
