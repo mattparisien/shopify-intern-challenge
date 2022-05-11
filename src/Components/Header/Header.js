@@ -1,6 +1,6 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import React, { useEffect, useState } from "react";
-import Container from "../Components/Container/Container";
+import Container from "../Container/Container";
 import "./Header.css";
 
 function Header() {

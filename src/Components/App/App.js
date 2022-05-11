@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Header from "../../Header/Header";
+import Header from "../Header/Header";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
 import Hero from "../Hero/Hero";
