@@ -12,7 +12,7 @@ function MainInterface() {
 			<Section name='MainInterface'>
 				<Flex direction='row' containerWidth='full' py={"40"} breakOnMobile>
 					<Flex
-						justifyContent='between'
+						justifyContent='start'
 						alignItems={"start"}
 						direction='col'
 						containerWidth='2/4'
