@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import FormError from "./FormError";
 import TextArea from "./TextArea";
+import Input from "./Input";
 
-function Form({ inputs, onSubmit, className, buttonText }) {
+function Form({ inputs, onSubmit, className, buttonText, disableButton }) {
+	console.log(inputs, onSubmit, className, buttonText);
+
 	const components = {
 		textarea: TextArea,
+		input: Input,
 	};
 
 	const [value, setValue] = useState({});
@@ -61,11 +65,13 @@ function Form({ inputs, onSubmit, className, buttonText }) {
 					})
 				)}
 				<FormError error={error} />
-				<div className='cta-wrapper w-full flex md:justify-end'>
-					<Button type='submit' isLoading={loading}>
-						{buttonText}
-					</Button>
-				</div>
+				{!disableButton && (
+					<div className='cta-wrapper w-full flex md:justify-end'>
+						<Button type='submit' isLoading={loading}>
+							{buttonText}
+						</Button>
+					</div>
+				)}
 			</form>
 		</div>
 	);

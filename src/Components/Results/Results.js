@@ -7,7 +7,7 @@ import List from "../List/List";
 function Results() {
 	const { listItems } = useContext(GlobalContext);
 	return (
-		<div className='Results md:w-3/6 md:ml-20'>
+		<div className='Results w-full'>
 			<FadeUpChildren>
 				<Heading id='#anchor'>Your results</Heading>
 				{listItems[0] && <List items={listItems} />}

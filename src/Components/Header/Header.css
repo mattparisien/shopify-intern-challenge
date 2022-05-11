@@ -1,6 +1,5 @@
 .Header .MuiSvgIcon-root {
-  
-  animation: arrowAnim 2s infinite linear alternate-reverse;
+	animation: arrowAnim 2s infinite linear alternate-reverse;
 }
 
 @keyframes arrowAnim {
