@@ -3,9 +3,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 
 function SearchButton({ onClick, isSearchActive }) {
-
-	console.log('hello')
-
 	return (
 		<button
 			className={`SearchButton relative hover:scale-150 is-${

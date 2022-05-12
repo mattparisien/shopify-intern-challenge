@@ -35,14 +35,14 @@ function ListItem(props) {
 			<motion.li
 				className={`ListItem relative text-${isHover ? "dark" : "cream"} bg-${
 					isHover ? "cream" : "dark"
-				} flex flex-col justify-center rounded-l text-left border border-neutral-500 pt-8 pb-4 px-5 w-full mb-10 shadow-custom`}
+				} flex flex-col justify-center rounded-l text-left border border-neutral-500 pt-8 pb-4 px-5 w-full shadow-custom`}
 				variants={variants}
 				initial='hidden'
 				animate={"visible"}
 				onMouseEnter={() => setIsHover(true)}
 				onMouseLeave={() => setIsHover(false)}
 			>
-				{isHover ? <HoverView /> : <DefaultView />}
+				{isHover ? <HoverView /> : <DefaultView postedAt={props.datePosted} isLiked={props.isLiked}/>}
 			</motion.li>
 		</ListItemContext.Provider>
 	);

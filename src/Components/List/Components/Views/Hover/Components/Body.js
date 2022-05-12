@@ -1,17 +1,16 @@
 import React from "react";
-import { useContext } from "react";
-import { ListItemContext } from "../../../ListItem";
 
-function Body() {
-	
-	const { prompt, response } = useContext(ListItemContext);
-
+function Body({ prompt, response }) {
 	return (
 		<div className='HoverView_Body'>
-			{/* <h3 className='promp-title text-xl font-semibold'>Your prompt</h3> */}
-			{/* <p>{prompt}</p> */}
-			{/* <h3 className='response-title text-xl font-semibold mt-5'>Response</h3> */}
-			<p className="font-cardinal text-4xl w-3/4">{response}</p>
+			<div className='prompt-wrapper mb-10'>
+				<h3 className='promp-title text-xl font-semibold'>Your prompt</h3>
+				<p className='font-cardinal text-4xl w-3/4'>{prompt}</p>
+			</div>
+			<div className='response-wrapper'>
+				<h3 className='response-title text-xl font-semibold mt-5'>Response</h3>
+				<p className='font-cardinal text-4xl w-3/4'>{response}</p>
+			</div>
 		</div>
 	);
 }
