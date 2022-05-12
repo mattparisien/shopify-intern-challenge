@@ -25,7 +25,11 @@ function Hero() {
 			<div className='hero-content flex flex-col items-center justify-center overflow-hidden md:block relative bg-blue-800 w-full text-cream '>
 				{words.map((word, i) => (
 					<h2 key={i} className='hero-word md:absolute sticky z-10'>
-						<SplitText enterDelay={2.4 + i / 10}>{word}</SplitText>
+						<SplitText
+							enterDelay={2.4 + i / 10}
+						>
+							{word}
+						</SplitText>
 					</h2>
 				))}
 				<Star ref={ref} />

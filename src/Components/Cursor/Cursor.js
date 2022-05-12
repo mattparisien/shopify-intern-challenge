@@ -18,9 +18,13 @@ function Cursor() {
 			ballX += (x - ballX) * 0.1;
 			ballY += (y - ballY) * 0.1;
 
-			ctx.arc(ballX, ballY, 90, 0, 2 * Math.PI);
+			ctx.arc(ballX, ballY, 8, 0, 2 * Math.PI);
+			ctx.strokeStyle = "black";
+      ctx.lineWidth = 1;
+			ctx.stroke();
+
 			ctx.fillStyle = "green";
-			ctx.fill();
+			// ctx.fill();
 		}
 
 		function loop() {
@@ -52,7 +56,7 @@ function Cursor() {
 
 	return (
 		<canvas
-			className='cursor-wrapper w-screen h-screen fixed top-0 left-0 z-50 mix-blend-exclusion pointer-events-none'
+			className='cursor-wrapper w-screen h-screen fixed top-0 left-0 z-50  pointer-events-none'
 			id='scene'
 		></canvas>
 	);

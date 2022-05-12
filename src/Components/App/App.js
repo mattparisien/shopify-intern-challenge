@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
-import Cursor from "../Cursor/Cursor";
 import "./App.css";
 
 export const GlobalContext = createContext();
@@ -90,22 +90,37 @@ function App() {
 		ACTIONS,
 	};
 
-	return (
-		<GlobalContext.Provider value={contextObj}>
-			<ScrollTop>
-				<div className='App bg-cream'>
-					<Header />
+	const scrollRef = useRef(null);
 
-					<main data-scroll-container>
-						<EntryScreen />
-						<Hero />
-						<MainInterface />
-					</main>
-					<Footer />
-					<Cursor />
-				</div>
-			</ScrollTop>
-		</GlobalContext.Provider>
+	return (
+		<LocomotiveScrollProvider
+			options={{
+				smooth: true,
+			}}
+			watch={[]}
+			containerRef={scrollRef}
+		>
+			<GlobalContext.Provider value={contextObj}>
+				<ScrollTop>
+					<div className='App bg-cream'>
+						<Header />
+						<div
+							className='scroll-wrapper'
+							data-scroll-container
+							ref={scrollRef}
+						>
+							<main>
+								<EntryScreen />
+								<Hero />
+								<MainInterface />
+							</main>
+							<Footer />
+							{/* <Cursor /> */}
+						</div>
+					</div>
+				</ScrollTop>
+			</GlobalContext.Provider>
+		</LocomotiveScrollProvider>
 	);
 }
 
