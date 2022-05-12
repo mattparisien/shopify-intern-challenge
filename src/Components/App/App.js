@@ -105,6 +105,7 @@ function App() {
 			<GlobalContext.Provider value={contextObj}>
 				<ScrollTop>
 					<div className='App'>
+						<EntryScreen />
 						<Header />
 						<div
 							className='scroll-wrapper'
@@ -112,7 +113,6 @@ function App() {
 							ref={scrollRef}
 						>
 							<main>
-								<EntryScreen />
 								<Hero />
 								<MainInterface />
 							</main>
