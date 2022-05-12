@@ -1,0 +1,13 @@
+.EyeBadge {
+	transform: scale(0);
+	animation: bounceIn 0.4s cubic-bezier(0.86, 0, 0.07, 0.995) forwards;
+}
+
+@keyframes bounceIn {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

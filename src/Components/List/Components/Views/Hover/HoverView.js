@@ -5,11 +5,11 @@ import { useContext } from "react";
 import { ListItemContext } from "../../ListItem";
 
 function HoverView() {
-	const { prompt, response, isEnter } = useContext(ListItemContext);
+	const { prompt, response, isHover  } = useContext(ListItemContext);
 
 	return (
 		<div className='HoverView relative h-full w-full'>
-			<EyeBadge isEnter={isEnter} />
+			<EyeBadge isEnter={isHover} />
 			<Body prompt={prompt} response={response} />
 		</div>
 	);

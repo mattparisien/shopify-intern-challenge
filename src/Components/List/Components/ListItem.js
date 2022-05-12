@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import React, { createContext, useState } from "react";
-import useMouseEnter from "../../../hooks/useMouseEnter";
 import "./ListItem.css";
 import DefaultView from "./Views/Default/DefaultView";
 import HoverView from "./Views/Hover/HoverView";
@@ -9,7 +8,7 @@ export const ListItemContext = createContext();
 
 function ListItem(props) {
 	const [popoverActive, setPopoverActive] = useState(false);
-	const { ref, isEnter } = useMouseEnter();
+	const [isHover, setIsHover] = useState(false);
 
 	const variants = {
 		hidden: {
@@ -28,21 +27,22 @@ function ListItem(props) {
 
 	const contextObj = {
 		...props,
-		isEnter,
+		isHover,
 	};
 
 	return (
 		<ListItemContext.Provider value={contextObj}>
 			<motion.li
-				className={`ListItem relative text-${isEnter ? "dark" : "cream"} bg-${
-					isEnter ? "cream" : "dark"
+				className={`ListItem relative text-${isHover ? "dark" : "cream"} bg-${
+					isHover ? "cream" : "dark"
 				} flex flex-col justify-center rounded-l text-left border border-neutral-500 pt-8 pb-4 px-5 w-full mb-10 shadow-custom`}
 				variants={variants}
 				initial='hidden'
 				animate={"visible"}
-				ref={ref}
+				onMouseEnter={() => setIsHover(true)}
+				onMouseLeave={() => setIsHover(false)}
 			>
-				{isEnter ? <HoverView /> : <DefaultView />}
+				{isHover ? <HoverView /> : <DefaultView />}
 			</motion.li>
 		</ListItemContext.Provider>
 	);
