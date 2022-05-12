@@ -3,7 +3,7 @@ import ListItem from "./Components/ListItem";
 
 function List({ items }) {
 	const classes =
-		"List text-dark w-full flex flex-col items-start justify-start";
+		"List grid grid-cols-2 gap-10 text-dark w-full items-start justify-start";
 
 	return (
 		<ul className={classes}>

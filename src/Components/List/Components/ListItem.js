@@ -26,7 +26,7 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 
 	return (
 		<motion.li
-			className='ListItem relative text-cream flex flex-col justify-center rounded-l text-left bg-black pt-8 pb-4 px-5 w-full mb-10 shadow-custom'
+			className='ListItem relative text-cream flex flex-col justify-center rounded-l text-left bg-dark border border-neutral-500 pt-8 pb-4 px-5 w-full mb-10 shadow-custom'
 			variants={variants}
 			initial='hidden'
 			animate={"visible"}
