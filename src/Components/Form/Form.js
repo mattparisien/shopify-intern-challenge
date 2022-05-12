@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import FormError from "./FormError";
 import TextArea from "./TextArea";
 import Input from "./Input";
+import FormButtons from "./FormButtons";
 
 function Form({
 	inputs,
@@ -12,9 +14,6 @@ function Form({
 	buttonText,
 	disableButton,
 }) {
-
-
-
 	const components = {
 		textarea: TextArea,
 		input: Input,
@@ -30,7 +29,7 @@ function Form({
 
 		//If fields are empty
 		if (Object.values(value).filter(val => val === "").length) {
-			setError("Fields cannot be empty");
+			setError("Please fill out the field");
 			setLoading(false);
 			return;
 		}
@@ -45,6 +44,14 @@ function Form({
 				setValue("");
 			}
 		);
+	};
+
+	const handleClearClick = () => {
+		const stateClone = Object.assign({}, value);
+
+		Object.keys(value).forEach(key => (stateClone[key] = ""));
+
+		setValue(stateClone);
 	};
 
 	useEffect(() => {
@@ -66,7 +73,7 @@ function Form({
 	};
 
 	return (
-		<div className={`Form ${className || ""}`}>
+		<div className={`Form w-full md:w-2/4 ${className || ""}`}>
 			<form className='form w-full' onSubmit={handleSubmit}>
 				{inputs.map((input, i) =>
 					React.createElement(components[input.component], {
@@ -79,11 +86,11 @@ function Form({
 				)}
 				<FormError error={error} />
 				{!disableButton && (
-					<div className='cta-wrapper w-full flex md:justify-end'>
-						<Button type='submit' isLoading={loading}>
-							{buttonText}
-						</Button>
-					</div>
+					<FormButtons
+						buttonText={buttonText}
+						loading={loading}
+						onClearClick={handleClearClick}
+					/>
 				)}
 			</form>
 		</div>

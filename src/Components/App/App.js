@@ -1,10 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import EntryScreen from "../EntryScreen/EntryScreen";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
+import SiteBackground from "../SiteBackground/SiteBackground";
 import "./App.css";
 
 export const GlobalContext = createContext();
@@ -12,6 +14,11 @@ export const GlobalContext = createContext();
 function App() {
 	const [listItems, setListItems] = useState([]);
 	const [searchResults, setSearchResults] = useState(null);
+	const [cursorStyle, setCursorStyle] = useState("OUTLINE");
+
+	const toggleCursorStyle = () => {
+		setCursorStyle(prevStyle => (prevStyle === "OUTLINE" ? "FILL" : "OUTLINE"));
+	};
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -73,24 +80,49 @@ function App() {
 		like: likeListItem,
 		unlike: unlikeListItem,
 		setSearch: setSearch,
+		toggleCursor: toggleCursorStyle,
 	};
 
+	const contextObj = {
+		listItems,
+		cursorStyle,
+		setListItems,
+		searchResults,
+		ACTIONS,
+	};
+
+	const scrollRef = useRef(null);
+
 	return (
-		<GlobalContext.Provider
-			value={{ listItems, setListItems, searchResults, ACTIONS }}
+		<LocomotiveScrollProvider
+			options={{
+				smooth: true,
+				getDirection: true,
+			}}
+			watch={[]}
+			containerRef={scrollRef}
 		>
-			<ScrollTop>
-				<div className='App bg-cream'>
-					<Header />
-					<main data-scroll-container>
+			<GlobalContext.Provider value={contextObj}>
+				<ScrollTop>
+					<div className='App'>
 						<EntryScreen />
-						<Hero />
-						<MainInterface />
-					</main>
-					<Footer />
-				</div>
-			</ScrollTop>
-		</GlobalContext.Provider>
+						<Header />
+						<div
+							className='scroll-wrapper'
+							data-scroll-container
+							ref={scrollRef}
+						>
+							<main>
+								<Hero />
+								<MainInterface />
+							</main>
+							<Footer />
+						</div>
+						<SiteBackground />
+					</div>
+				</ScrollTop>
+			</GlobalContext.Provider>
+		</LocomotiveScrollProvider>
 	);
 }
 

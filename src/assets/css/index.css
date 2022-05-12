@@ -4,7 +4,7 @@ code {
 }
 
 @font-face {
-	src: url("../fonts/PPMori-Regular.otf");
+	src: url("../fonts/NeueMontreal-Regular.otf");
 	font-family: "Mori";
 	font-weight: 200;
 }
@@ -15,6 +15,13 @@ code {
 	font-weight: 600;
 }
 
+@font-face {
+	src: url("../fonts/cardinalfruit-regular-TRIAL.otf");
+	font-family: "Cardinal";
+}
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,8 +30,17 @@ body {
 	overflow-x: hidden;
 }
 
+.font-cardinal {
+	font-family: 'Cardinal';
+}
+
+.font-regular {
+	font-family: 'Mori';
+}
+
 body {
 	font-family: "Mori";
+	-webkit-font-smoothing: antialiased;
 }
 
 #root {

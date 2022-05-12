@@ -1,47 +1,48 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { createContext, useState, useRef, useEffect } from "react";
 import "./ListItem.css";
-import ListItemBody from "./ListItemBody";
-import ListItemFooter from "./ListItemFooter";
-import ListItemPopover from "./ListItemPopover";
-import MoreButton from "./MoreButton";
+import DefaultView from "./Views/Default/DefaultView";
+import HoverView from "./Views/Hover/HoverView";
+import { variants } from "./animations";
+export const ListItemContext = createContext();
 
-function ListItem({ id, prompt, response, datePosted, isLiked }) {
-	const [popoverActive, setPopoverActive] = useState(false);
+function ListItem(props) {
+	const [isHover, setIsHover] = useState(false);
 
-	const variants = {
-		hidden: {
-			opacity: 0,
-			y: "100%",
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				ease: [0.215, 0.61, 0.355, 1],
-				duration: 0.4,
-			},
-		},
+	const contextObj = {
+		...props,
+		isHover,
 	};
 
+	const itemRef = useRef(null);
+
 	return (
-		<motion.li
-			className='ListItem relative text-dark flex flex-col justify-center rounded-l text-left bg-cream pt-8 pb-4 px-5 w-full mb-10 shadow-custom'
-			variants={variants}
-			initial='hidden'
-			animate={"visible"}
-		>
-			<ListItemBody prompt={prompt} response={response} />
-			<ListItemFooter datePosted={datePosted} isLiked={isLiked} />
-			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
-			{popoverActive && (
-				<ListItemPopover
-					listItemId={id}
-					isLiked={isLiked}
-					toggleSelf={() => setPopoverActive(!popoverActive)}
-				/>
-			)}
-		</motion.li>
+		<ListItemContext.Provider value={contextObj}>
+			<motion.li
+				className={`ListItem is-view-${
+					isHover ? "hover" : "default"
+				} relative will-change-height text-${isHover ? "dark" : "cream"} bg-${
+					isHover ? "cream" : "dark"
+				} flex flex-col justify-center rounded-l text-left border border-neutral-500 pt-8 pb-4 px-5 w-full shadow-custom`}
+				variants={variants}
+				initial='hidden'
+				animate={"visible"}
+				exit='exit'
+				onMouseEnter={() => setIsHover(true)}
+				onMouseLeave={() => setIsHover(false)}
+				ref={itemRef}
+			>
+				{isHover ? (
+					<HoverView />
+				) : (
+					<DefaultView
+						postedAt={props.datePosted}
+						isLiked={props.isLiked}
+						number={props.itemNumber}
+					/>
+				)}
+			</motion.li>
+		</ListItemContext.Provider>
 	);
 }
 

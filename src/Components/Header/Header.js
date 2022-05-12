@@ -1,47 +1,39 @@
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import React, { useEffect, useState } from "react";
 import Container from "../Container/Container";
+import Search from "../Search/Search";
 import "./Header.css";
+import SearchButton from "./SearchButton";
+import useScrollDirection from "../../hooks/useScrollDirection";
+import classNames from "classnames";
 
 function Header() {
-	const [currentColor, setCurrentColor] = useState("white");
+	const [searchActive, setSearchActive] = useState(false);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > window.innerHeight - 50) {
-				//If scroll position is passed hero section
-				setCurrentColor("dark");
-			} else if (window.scrollY < window.innerHeight) {
-				setCurrentColor("white");
-			}
-		};
+	const direction = useScrollDirection();
 
-		window.addEventListener("scroll", handleScroll);
+	const onClick = () => {
+		setSearchActive(!searchActive);
+	};
 
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	const headerClasses = classNames(
+		"Header fixed  left-0 w-screen h-12 bg-dark text-cream z-50 pointer-events-all",
+		{
+			["-top-20"]: direction === "down",
+			["top-0"]: direction === "up",
+		}
+	);
 
 	return (
-		<header
-			className={`Header fixed top-0 left-0 w-screen h-20 bg-transparent text-${currentColor} z-50`}
-		>
+		<header className={headerClasses}>
 			<Container>
 				<div className='content flex w-full h-full items-center justify-between'>
-					<div className='header-logo transition ease duration-300 text-2xl'>
-						Prompt it!
+					<div className='header-logo transition ease duration-300 text-lg text-left flex-1'>
+						Pr●mpt it!
 					</div>
-					<button
-						className='header-cta cursor-pointer hover:opacity-50 transition ease duration-300'
-						onClick={() => window.scrollTo(0, window.innerHeight)}
-					>
-						<span className='pr-2 transition ease duration-300'>
-							Start prompting{" "}
-						</span>
-						<ArrowBackIosNewIcon
-							className='transition ease duration-300'
-							sx={{ transform: "rotate(-90deg)", width: "1rem" }}
-						/>
-					</button>
+					<div className='header-controls flex-1 flex items-center justify-end'>
+						<Search isActive={searchActive} />
+						<SearchButton onClick={onClick} isSearchActive={searchActive} />
+					</div>
 				</div>
 			</Container>
 		</header>
