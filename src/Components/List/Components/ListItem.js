@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
+import useMouseEnter from "../../../hooks/useMouseEnter";
 import "./ListItem.css";
-import ListItemBody from "./ListItemBody";
-import ListItemFooter from "./ListItemFooter";
-import ListItemPopover from "./ListItemPopover";
-import MoreButton from "./MoreButton";
+import DefaultView from "./Views/Default/DefaultView";
+import HoverView from "./Views/Hover/HoverView";
 
-function ListItem({ id, prompt, response, datePosted, isLiked }) {
+export const ListItemContext = createContext();
+
+function ListItem(props) {
 	const [popoverActive, setPopoverActive] = useState(false);
+	const { ref, isEnter } = useMouseEnter();
 
 	const variants = {
 		hidden: {
@@ -24,24 +26,24 @@ function ListItem({ id, prompt, response, datePosted, isLiked }) {
 		},
 	};
 
+	const contextObj = {
+		...props,
+	};
+
 	return (
-		<motion.li
-			className='ListItem relative text-cream flex flex-col justify-center rounded-l text-left bg-dark border border-neutral-500 pt-8 pb-4 px-5 w-full mb-10 shadow-custom'
-			variants={variants}
-			initial='hidden'
-			animate={"visible"}
-		>
-			<ListItemBody prompt={prompt} response={response} />
-			<ListItemFooter datePosted={datePosted} isLiked={isLiked} />
-			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
-			{popoverActive && (
-				<ListItemPopover
-					listItemId={id}
-					isLiked={isLiked}
-					toggleSelf={() => setPopoverActive(!popoverActive)}
-				/>
-			)}
-		</motion.li>
+		<ListItemContext.Provider value={contextObj}>
+			<motion.li
+				className={`ListItem relative text-${isEnter ? "dark" : "cream"} bg-${
+					isEnter ? "cream" : "dark"
+				} flex flex-col justify-center rounded-l text-left border border-neutral-500 pt-8 pb-4 px-5 w-full mb-10 shadow-custom`}
+				variants={variants}
+				initial='hidden'
+				animate={"visible"}
+				ref={ref}
+			>
+				{isEnter ? <HoverView /> : <DefaultView />}
+			</motion.li>
+		</ListItemContext.Provider>
 	);
 }
 

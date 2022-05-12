@@ -15,12 +15,21 @@ code {
 	font-weight: 600;
 }
 
+@font-face {
+	src: url("../fonts/cardinalfruit-regular-TRIAL.otf");
+	font-family: "Cardinal";
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
 	overflow-x: hidden;
+}
+
+.font-cardinal {
+	font-family: 'Cardinal';
 }
 
 body {
