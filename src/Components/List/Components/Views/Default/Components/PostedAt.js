@@ -11,7 +11,7 @@ function PostedAt({ postedAt }) {
 		}
 	}, [postedAt, pinger]);
 
-	return <span className='DefaultView_PostedAt text-sm w-2/6'>You asked this question {time}</span>;
+	return <span className='DefaultView_PostedAt text-sm w-2/6 text-neutral-400'>You asked this question {time}</span>;
 }
 
 export default PostedAt;
