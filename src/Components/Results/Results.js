@@ -11,7 +11,15 @@ function Results() {
 	return (
 		<div className='Results w-full'>
 			<FadeUpChildren>
-				<Heading id='#anchor'>Your results</Heading>
+				<Heading id='#anchor'>
+					Your results{" "}
+					<sup
+						className='text-sm'
+						style={{ verticalAlign: "top", left: "-0.2em", top: "-0.1em" }}
+					>
+						{listItems.length}
+					</sup>
+				</Heading>
 				{listItems[0] && (
 					<List items={searchResults ? searchResults : listItems} />
 				)}
