@@ -7,7 +7,10 @@ function List({ items }) {
 
 	return (
 		<ul className={classes}>
-			{items && items.map(item => <ListItem key={item.id} {...item} />)}
+			{items &&
+				items.map((item, index) => (
+					<ListItem key={item.id} {...item} itemNumber={items.length - index} />
+				))}
 		</ul>
 	);
 }

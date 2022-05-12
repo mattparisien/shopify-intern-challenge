@@ -1,11 +1,16 @@
 import React from "react";
 
 function ReadMoreButton() {
+
+	const handleClick = () => {
+		
+	}
+
 	return (
 		<span className='font-regular'>
-			<a className='font-regular underline  text-sm' href='#'>
+			<button className='font-regular underline  text-sm' href='#' onClick={handleClick}>
 				Read more
-			</a>
+			</button>
 		</span>
 	);
 }

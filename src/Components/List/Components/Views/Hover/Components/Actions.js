@@ -36,6 +36,7 @@ function Actions({ id, isLiked }) {
 							<span>
 								{React.createElement(option.icon, {
 									sx: { width: "1.3rem" },
+									className: option.action === "unlike" ? "text-red-400" : "",
 								})}
 							</span>
 						</button>
