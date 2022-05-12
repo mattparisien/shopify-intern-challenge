@@ -11,7 +11,7 @@ function Body({ prompt, response }) {
 			<div className='response-wrapper'>
 				<h3 className='response-title text-xl font-semibold mt-5'>Response</h3>
 				<p className='font-cardinal text-4xl w-3/4'>
-					{response.slice(0, 100)}... <ReadMoreButton />
+					{response.length > 100 ? `${response.slice(0, 100)}...` : response}
 				</p>
 			</div>
 		</div>

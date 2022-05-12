@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useRef, useEffect } from "react";
 import "./ListItem.css";
 import DefaultView from "./Views/Default/DefaultView";
 import HoverView from "./Views/Hover/HoverView";
@@ -13,6 +13,8 @@ function ListItem(props) {
 		...props,
 		isHover,
 	};
+
+	const itemRef = useRef(null);
 
 	return (
 		<ListItemContext.Provider value={contextObj}>
@@ -28,6 +30,7 @@ function ListItem(props) {
 				exit='exit'
 				onMouseEnter={() => setIsHover(true)}
 				onMouseLeave={() => setIsHover(false)}
+				ref={itemRef}
 			>
 				{isHover ? (
 					<HoverView />
