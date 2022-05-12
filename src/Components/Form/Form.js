@@ -46,6 +46,14 @@ function Form({
 		);
 	};
 
+	const handleClearClick = () => {
+		const stateClone = Object.assign({}, value);
+
+		Object.keys(value).forEach(key => (stateClone[key] = ""));
+
+		setValue(stateClone);
+	};
+
 	useEffect(() => {
 		const defaultState = {};
 
@@ -78,7 +86,11 @@ function Form({
 				)}
 				<FormError error={error} />
 				{!disableButton && (
-					<FormButtons buttonText={buttonText} loading={loading} />
+					<FormButtons
+						buttonText={buttonText}
+						loading={loading}
+						onClearClick={handleClearClick}
+					/>
 				)}
 			</form>
 		</div>

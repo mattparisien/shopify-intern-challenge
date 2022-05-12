@@ -2,9 +2,9 @@ import React from "react";
 
 function ButtonGroup({ children }) {
 	return (
-		<div className='ButtonGroup flex flex-col md:flex-row items-center'>
+		<div className='ButtonGroup flex items-center'>
 			{children.map((child, i) => (
-				<div className='button-wrapper' key={i}>
+				<div className={`button-wrapper ${i !== 0 && 'ml-3'}`} key={i}>
 					{child}
 				</div>
 			))}
