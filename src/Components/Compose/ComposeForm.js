@@ -17,16 +17,14 @@ function ComposeForm() {
 	];
 
 	const handleSubmit = (values, onSuccessCallback, onFailureCallback) => {
-		setPrompt(values.prompt);
-
-		const getData = async () => {
+		const getData = async prompt => {
 			const body = {
 				temperature: 0.5,
-				max_tokens: 35,
+				max_tokens: 100,
 				top_p: 1.0,
 				frequency_penalty: 0.0,
 				presence_penalty: 0.0,
-				prompt: prompt,
+				prompt: values.prompt,
 			};
 
 			try {
@@ -41,13 +39,14 @@ function ComposeForm() {
 				);
 
 				onSuccessCallback();
+				setPrompt(values.prompt);
 				setResponse(resp.data);
 			} catch (err) {
 				onFailureCallback(err);
 			}
 		};
 
-		getData();
+		getData(prompt);
 	};
 
 	useEffect(() => {
