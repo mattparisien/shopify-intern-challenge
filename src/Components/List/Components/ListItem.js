@@ -28,6 +28,7 @@ function ListItem(props) {
 
 	const contextObj = {
 		...props,
+		isEnter,
 	};
 
 	return (

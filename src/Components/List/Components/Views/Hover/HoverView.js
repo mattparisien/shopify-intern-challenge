@@ -1,21 +1,16 @@
 import React from "react";
-import EyeBadge from "../../EyeBadge";
-import ListItemBody from "./Components/ListItemBody";
+import EyeBadge from "./Components/EyeBadge";
+import Body from "./Components/Body";
+import { useContext } from "react";
+import { ListItemContext } from "../../ListItem";
 
 function HoverView() {
+	const { prompt, response, isEnter } = useContext(ListItemContext);
+
 	return (
 		<div className='HoverView relative h-full w-full'>
-			<EyeBadge />
-			<ListItemBody />
-			{/* <ListItemFooter datePosted={datePosted} isLiked={isLiked} />
-			<MoreButton togglePopover={() => setPopoverActive(!popoverActive)} />
-			{popoverActive && (
-				<ListItemPopover
-					listItemId={id}
-					isLiked={isLiked}
-					toggleSelf={() => setPopoverActive(!popoverActive)}
-				/>
-			)} */}
+			<EyeBadge isEnter={isEnter} />
+			<Body prompt={prompt} response={response} />
 		</div>
 	);
 }
