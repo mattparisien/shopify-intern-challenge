@@ -1,29 +1,12 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "../Container/Container";
 import "./Header.css";
 
 function Header() {
-	const [currentColor, setCurrentColor] = useState("white");
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > window.innerHeight - 50) {
-				//If scroll position is passed hero section
-				setCurrentColor("dark");
-			} else if (window.scrollY < window.innerHeight) {
-				setCurrentColor("white");
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	return (
 		<header
-			className={`Header fixed top-0 left-0 w-screen h-20 bg-transparent text-${currentColor} z-50`}
+			className={`Header fixed top-0 left-0 w-screen h-20 bg-transparent text-cream z-50`}
 		>
 			<Container>
 				<div className='content flex w-full h-full items-center justify-between'>

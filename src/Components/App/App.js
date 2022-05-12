@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
+import SiteBackground from "../SiteBackground/SiteBackground";
 import "./App.css";
 
 export const GlobalContext = createContext();
@@ -102,7 +103,7 @@ function App() {
 		>
 			<GlobalContext.Provider value={contextObj}>
 				<ScrollTop>
-					<div className='App bg-cream'>
+					<div className='App'>
 						<Header />
 						<div
 							className='scroll-wrapper'
@@ -115,8 +116,8 @@ function App() {
 								<MainInterface />
 							</main>
 							<Footer />
-							{/* <Cursor /> */}
 						</div>
+						<SiteBackground />
 					</div>
 				</ScrollTop>
 			</GlobalContext.Provider>

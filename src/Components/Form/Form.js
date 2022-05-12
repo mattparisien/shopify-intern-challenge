@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import FormError from "./FormError";
 import TextArea from "./TextArea";
 import Input from "./Input";
+import FormButtons from "./FormButtons";
 
 function Form({
 	inputs,
@@ -12,9 +14,6 @@ function Form({
 	buttonText,
 	disableButton,
 }) {
-
-
-
 	const components = {
 		textarea: TextArea,
 		input: Input,
@@ -79,11 +78,7 @@ function Form({
 				)}
 				<FormError error={error} />
 				{!disableButton && (
-					<div className='cta-wrapper w-full flex md:justify-end'>
-						<Button type='submit' isLoading={loading}>
-							{buttonText}
-						</Button>
-					</div>
+					<FormButtons buttonText={buttonText} loading={loading} />
 				)}
 			</form>
 		</div>
