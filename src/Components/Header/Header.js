@@ -22,7 +22,7 @@ function Header() {
 					</div>
 					<div className='header-controls w-full flex items-center justify-end'>
 						<Search isActive={searchActive} />
-						<SearchButton onClick={onClick} />
+						<SearchButton onClick={onClick} isSearchActive={searchActive} />
 					</div>
 				</div>
 			</Container>

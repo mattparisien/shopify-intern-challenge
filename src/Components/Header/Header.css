@@ -1,12 +1,35 @@
-/* .Header .MuiSvgIcon-root {
-	animation: arrowAnim 2s infinite linear alternate-reverse;
+.Header .SearchButton.is-close .loop-icon {
+	animation: rotateIconOut 0.5s ease forwards;
 }
 
-@keyframes arrowAnim {
+.Header .SearchButton.is-close .close-icon {
+	animation: rotateIconIn 0.5s ease forwards;
+}
+
+.Header .SearchButton.is-loop .loop-icon {
+	animation: rotateIconIn 0.5s ease forwards;
+}
+
+.Header .SearchButton.is-loop .close-icon {
+	animation: rotateIconOut 0.5s ease forwards;
+}
+
+@keyframes rotateIconOut {
 	0% {
-		transform: translateY(20%) rotate(-90deg);
+		transform: rotate(0deg);
 	}
 	100% {
-		transform: translateY(-20%) rotate(-90deg);
+		transform: rotate(360deg);
+		opacity: 0;
 	}
-} */
+}
+
+@keyframes rotateIconIn {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+}
