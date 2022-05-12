@@ -97,6 +97,7 @@ function App() {
 		<LocomotiveScrollProvider
 			options={{
 				smooth: true,
+				getDirection: true,
 			}}
 			watch={[]}
 			containerRef={scrollRef}

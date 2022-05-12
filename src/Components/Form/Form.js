@@ -29,7 +29,7 @@ function Form({
 
 		//If fields are empty
 		if (Object.values(value).filter(val => val === "").length) {
-			setError("Fields cannot be empty");
+			setError("Please fill out the field");
 			setLoading(false);
 			return;
 		}
