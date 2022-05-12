@@ -1,13 +1,15 @@
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import React from "react";
+import React, { useState } from "react";
 import Container from "../Container/Container";
 import Search from "../Search/Search";
-import SearchButton from "./SearchButton";
 import "./Header.css";
+import SearchButton from "./SearchButton";
 
 function Header() {
-
 	const [searchActive, setSearchActive] = useState(false);
+
+	const onClick = () => {
+		setSearchActive(!searchActive);
+	};
 
 	return (
 		<header
@@ -18,8 +20,10 @@ function Header() {
 					<div className='header-logo transition ease duration-300 text-2xl'>
 						Prompt it!
 					</div>
-					<Search/>
-					<SearchButton/>
+					<div className='header-controls w-full flex items-center justify-end'>
+						<Search isActive={searchActive} />
+						<SearchButton onClick={onClick} />
+					</div>
 				</div>
 			</Container>
 		</header>
