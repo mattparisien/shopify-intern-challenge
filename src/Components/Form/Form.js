@@ -73,7 +73,7 @@ function Form({
 	};
 
 	return (
-		<div className={`Form ${className || ""}`}>
+		<div className={`Form w-full md:w-2/4 ${className || ""}`}>
 			<form className='form w-full' onSubmit={handleSubmit}>
 				{inputs.map((input, i) =>
 					React.createElement(components[input.component], {

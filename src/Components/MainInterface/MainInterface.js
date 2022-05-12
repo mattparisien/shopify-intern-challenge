@@ -16,7 +16,7 @@ function MainInterface() {
 						{" "}
 						● Your dashboard
 					</div>
-					<div className='flex flex-col mb-20 w-full md:w-2/4 md:pr-10 md:mb-0'>
+					<div className='flex flex-col mb-20 w-full md:pr-10 md:mb-0'>
 						<Compose />
 						<Search />
 					</div>
