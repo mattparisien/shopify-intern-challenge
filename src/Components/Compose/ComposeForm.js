@@ -11,7 +11,7 @@ function ComposeForm() {
 	const inputMap = [
 		{
 			component: "textarea",
-			placeholder: "Say anything!",
+			placeholder: "Ask anything",
 			name: "prompt",
 		},
 	];
