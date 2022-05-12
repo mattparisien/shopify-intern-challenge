@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import MainInterface from "../MainInterface/MainInterface";
 import ScrollTop from "../ScrollTop/ScrollTop";
+import Cursor from "../Cursor/Cursor";
 import "./App.css";
 
 export const GlobalContext = createContext();
@@ -82,6 +83,7 @@ function App() {
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
+					<Cursor/>
 					<main data-scroll-container>
 						<EntryScreen />
 						<Hero />
