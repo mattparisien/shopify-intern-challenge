@@ -52,7 +52,7 @@ function Cursor() {
 
 	return (
 		<canvas
-			className='cursor-wrapper w-screen h-screen fixed top-0 left-0'
+			className='cursor-wrapper w-screen h-screen fixed top-0 left-0 z-50 mix-blend-exclusion pointer-events-none'
 			id='scene'
 		></canvas>
 	);

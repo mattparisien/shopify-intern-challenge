@@ -13,6 +13,11 @@ export const GlobalContext = createContext();
 function App() {
 	const [listItems, setListItems] = useState([]);
 	const [searchResults, setSearchResults] = useState(null);
+	const [cursorStyle, setCursorStyle] = useState("OUTLINE");
+
+	const toggleCursorStyle = () => {
+		setCursorStyle(prevStyle => (prevStyle === "OUTLINE" ? "FILL" : "OUTLINE"));
+	};
 
 	const deleteListItem = id => {
 		setListItems(prevState => [
@@ -74,22 +79,30 @@ function App() {
 		like: likeListItem,
 		unlike: unlikeListItem,
 		setSearch: setSearch,
+		toggleCursor: toggleCursorStyle,
+	};
+
+	const contextObj = {
+		listItems,
+		cursorStyle,
+		setListItems,
+		searchResults,
+		ACTIONS,
 	};
 
 	return (
-		<GlobalContext.Provider
-			value={{ listItems, setListItems, searchResults, ACTIONS }}
-		>
+		<GlobalContext.Provider value={contextObj}>
 			<ScrollTop>
 				<div className='App bg-cream'>
 					<Header />
-					<Cursor/>
+
 					<main data-scroll-container>
 						<EntryScreen />
 						<Hero />
 						<MainInterface />
 					</main>
 					<Footer />
+					<Cursor />
 				</div>
 			</ScrollTop>
 		</GlobalContext.Provider>
