@@ -1,4 +1,5 @@
 import React from "react";
+import ReadMoreButton from "./ReadMoreButton";
 
 function Body({ prompt, response }) {
 	return (
@@ -9,7 +10,9 @@ function Body({ prompt, response }) {
 			</div>
 			<div className='response-wrapper'>
 				<h3 className='response-title text-xl font-semibold mt-5'>Response</h3>
-				<p className='font-cardinal text-4xl w-3/4'>{response}</p>
+				<p className='font-cardinal text-4xl w-3/4'>
+					{response.slice(0, 100)}... <ReadMoreButton />
+				</p>
 			</div>
 		</div>
 	);
