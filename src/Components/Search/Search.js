@@ -12,7 +12,7 @@ function Search({ isActive }) {
 				style={{
 					transition: "all 0.8s cubic-bezier(0.86, 0, 0.07, 0.995) 0s",
 					opacity: isActive ? 1 : 0,
-					transform: `translateX(${isActive ? 0 : "-100%"})`,
+					transform: `translateX(${isActive ? 0 : "100%"})`,
 				}}
 			>
 				<SearchBar />

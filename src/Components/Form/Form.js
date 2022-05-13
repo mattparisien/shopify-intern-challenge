@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ButtonGroup from "../Button/ButtonGroup";
-import Button from "../Button/Button";
-import FormError from "./FormError";
-import TextArea from "./TextArea";
-import Input from "./Input";
 import FormButtons from "./FormButtons";
+import FormError from "./FormError";
+import Input from "./Input";
+import TextArea from "./TextArea";
 
 function Form({
 	inputs,
