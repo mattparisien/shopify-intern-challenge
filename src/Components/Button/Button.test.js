@@ -29,3 +29,8 @@ it("renders an outline button style", () => {
 	const { getByText } = render(<Button variant={"outline"}>Default</Button>);
 	expect(getByText("Default").closest("button")).toHaveClass("Button_outline");
 });
+
+it("renders a fill button style", () => {
+	const { getByText } = render(<Button variant={"fill"}>Default</Button>);
+	expect(getByText("Default").closest("button")).toHaveClass("Button_fill");
+});
