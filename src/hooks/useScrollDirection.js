@@ -1,5 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
-import useScroll from "./useScroll";
+import { useEffect, useState } from "react";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 const useScrollDirection = () => {

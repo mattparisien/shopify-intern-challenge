@@ -1,24 +1,39 @@
-import React, { useEffect, useState } from "react";
+import classNames from "classnames";
+import React, { useState } from "react";
+import useScroll from "../../hooks/useScroll";
+import useScrollDirection from "../../hooks/useScrollDirection";
 import Container from "../Container/Container";
 import Search from "../Search/Search";
 import "./Header.css";
 import SearchButton from "./SearchButton";
-import useScrollDirection from "../../hooks/useScrollDirection";
-import classNames from "classnames";
 
 function Header() {
 	const [searchActive, setSearchActive] = useState(false);
+	const [headerColor, setHeaderColor] = useState("transparent");
 
 	const direction = useScrollDirection();
+
+	const handleScroll = e => {
+		if (e.scroll.y > window.innerHeight && headerColor !== "dark") {
+			setHeaderColor("dark");
+		} else if (
+			e.scroll.y < window.innerHeight &&
+			headerColor !== "transparent"
+		) {
+			setHeaderColor("transparent");
+		}
+	};
+
+	useScroll(handleScroll);
 
 	const onClick = () => {
 		setSearchActive(!searchActive);
 	};
 
 	const headerClasses = classNames(
-		"Header fixed  left-0 w-screen h-12 bg-dark text-cream z-50 pointer-events-all",
+		`Header fixed left-0 w-screen h-12 bg-${headerColor} text-cream z-50 pointer-events-all`,
 		{
-			["-top-20"]: direction === "down",
+			["-top-20"]: direction === "down" && !searchActive,
 			["top-0"]: direction === "up",
 		}
 	);
