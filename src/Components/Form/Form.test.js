@@ -36,7 +36,7 @@ describe("Form", () => {
 		expect(handleSubmit).toHaveBeenCalledTimes(0);
 	});
 
-	it("does calls onSubmit if the fields are filled out", () => {
+	it("calls onSubmit if the fields are filled out", () => {
 		const inputMap = [
 			{
 				component: "textarea",
@@ -56,5 +56,25 @@ describe("Form", () => {
 		fireEvent.change(textArea, { target: { value: "This is a test" } });
 		fireEvent.click(submitButton);
 		expect(handleSubmit).toHaveBeenCalledTimes(1);
+	});
+
+	it("clears the input field when the clear button is clicked", () => {
+		const inputMap = [
+			{
+				component: "textarea",
+				placeholder: "Ask anything",
+				name: "prompt",
+			},
+		];
+
+		const { getByText, getByPlaceholderText } = render(
+			<Form inputs={inputMap} buttonText='Submit' />
+		);
+		const textArea = getByPlaceholderText("Ask anything");
+		const clearButton = getByText("Clear").closest("button");
+
+		fireEvent.change(textArea, { target: { value: "This is a test" } });
+		fireEvent.click(clearButton);
+		expect(textArea).toHaveValue("");
 	});
 });
