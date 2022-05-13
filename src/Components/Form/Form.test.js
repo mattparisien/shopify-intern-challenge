@@ -31,6 +31,7 @@ describe("Form", () => {
 		const { getByText } = render(
 			<Form inputs={inputMap} buttonText='Submit' onSubmit={handleSubmit} />
 		);
+
 		const submitButton = getByText("Submit").closest("button");
 		fireEvent.click(submitButton);
 		expect(handleSubmit).toHaveBeenCalledTimes(0);
