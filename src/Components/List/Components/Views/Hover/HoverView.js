@@ -10,7 +10,7 @@ function HoverView() {
 		useContext(ListItemContext);
 
 	return (
-		<div className='HoverView relative h-full w-full'>
+		<div className='HoverView relative h-full w-full' data-testid="hover">
 			<EyeBadge isEnter={isHover} />
 			<Body prompt={prompt} response={response} />
 			<Actions id={id} isLiked={isLiked} />

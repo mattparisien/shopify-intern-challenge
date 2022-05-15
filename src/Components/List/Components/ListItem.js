@@ -31,6 +31,7 @@ function ListItem(props) {
 				onMouseEnter={() => setIsHover(true)}
 				onMouseLeave={() => setIsHover(false)}
 				ref={itemRef}
+				data-testid="listItem"
 			>
 				{isHover ? (
 					<HoverView />
